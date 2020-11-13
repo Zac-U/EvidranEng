@@ -14,6 +14,11 @@ public class Location {
         this.y = y;
     }
 
+    public Location(Location l) {
+        this.x = l.x;
+        this.y = l.y;
+    }
+
     protected void setX(int X) {
         this.x = X;
     }

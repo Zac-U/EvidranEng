@@ -9,6 +9,13 @@ public class Volume extends Location {
 
     }
 
+    public Volume(Volume v) {
+        super(v.getLocation());
+        this.volX = v.volX;
+        this.volY = v.volY;
+
+    }
+
     public int getVolY() {
         return volY;
     }

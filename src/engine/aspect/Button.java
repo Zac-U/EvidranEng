@@ -20,6 +20,10 @@ public class Button extends Volume implements drawable{
         this.f = d;
     }
 
+    private void setLocal(){
+        f.giveLocation(super.getLocation());
+    }
+
     @Override
     public void draw(Canvas board) {
         f.draw(board);
