@@ -1,10 +1,10 @@
 package engine;
 
-public class Volumeable extends Locateable{
+public class Volume extends Location {
 
     private int volX, volY;
 
-    public Volumeable(int x, int y, int vX, int vY) {
+    public Volume(int x, int y, int vX, int vY) {
         super(x,y);
 
     }
@@ -26,33 +26,33 @@ public class Volumeable extends Locateable{
     }
 
 
-    public Locateable getTL() {
+    public Location getTL() {
         return super.clone();
     }
 
 
-    public Locateable getTR() {
-        Locateable temp = super.clone();
+    public Location getTR() {
+        Location temp = super.clone();
         temp.addX(this.getVolX());
         return temp;
     }
 
 
-    public Locateable getBL() {
-        Locateable temp = super.clone();
+    public Location getBL() {
+        Location temp = super.clone();
         temp.addY(this.getVolY());
         return temp;
     }
 
 
-    public Locateable getBR() {
-        Locateable temp = super.clone();
+    public Location getBR() {
+        Location temp = super.clone();
         temp.addX(this.getVolX());
         temp.addY(this.getVolY());
         return temp;
     }
 
-    public boolean locateInVol(Locateable point)  {
+    public boolean locateInVol(Location point)  {
         //if point is greater than TL and less the BR then it's in point
         if(  (this.getTL().greaterX(point.getX()) && this.getTL().greaterY(point.getY())) &&
                 (this.getBR().lesserX(point.getX()) && this.getTL().lesserX(point.getY()))      )  {
@@ -61,7 +61,7 @@ public class Volumeable extends Locateable{
         return false;
     }
 
-    public boolean Intersect(Volumeable outside) {
+    public boolean Intersect(Volume outside) {
         if(this.locateInVol(outside.getBL()) ||
            this.locateInVol(outside.getTL()) ||
            this.locateInVol(outside.getBR()) ||

@@ -4,12 +4,12 @@ package engine;
  * A POJO for holding a 2D point in space
  * Has associated functions for comparing points in space
  */
-public class Locateable {
+public class Location {
 
     private int x,y;
 
 
-    public Locateable(int x, int y) {
+    public Location(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -35,8 +35,8 @@ public class Locateable {
         setY(y);
     }
 
-    protected Locateable clone() {
-        return new Locateable(this.x, this.y);
+    protected Location clone() {
+        return new Location(this.x, this.y);
     }
 
     protected void addX(int V) {
