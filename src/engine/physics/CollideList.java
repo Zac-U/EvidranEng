@@ -2,6 +2,7 @@ package engine.physics;
 
 import java.util.ArrayList;
 
+//holds a list of collidable objects for levels
 public class CollideList {
     private ArrayList<collide> elements = new ArrayList<collide>();
 

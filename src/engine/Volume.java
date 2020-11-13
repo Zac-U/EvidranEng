@@ -69,4 +69,8 @@ public class Volume extends Location {
         return false;
     }
 
+    public Location getLocation(){
+        return super.clone();
+    }
+
 }
