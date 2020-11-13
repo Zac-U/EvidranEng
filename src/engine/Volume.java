@@ -26,26 +26,26 @@ public class Volume extends Location {
     }
 
 
-    public Location getTL() {
+    private Location getTL() {
         return super.clone();
     }
 
 
-    public Location getTR() {
+    private Location getTR() {
         Location temp = super.clone();
         temp.addX(this.getVolX());
         return temp;
     }
 
 
-    public Location getBL() {
+    private Location getBL() {
         Location temp = super.clone();
         temp.addY(this.getVolY());
         return temp;
     }
 
 
-    public Location getBR() {
+    private Location getBR() {
         Location temp = super.clone();
         temp.addX(this.getVolX());
         temp.addY(this.getVolY());

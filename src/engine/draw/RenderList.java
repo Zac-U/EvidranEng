@@ -4,7 +4,7 @@ import javafx.scene.canvas.*;
 
 public class RenderList implements  drawable{
     
-    ArrayList<drawable> elements = new ArrayList<drawable>();
+    private ArrayList<drawable> elements = new ArrayList<drawable>();
     
     public RenderList() {
         
