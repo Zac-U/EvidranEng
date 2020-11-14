@@ -69,4 +69,4 @@ public class Moveable extends Collide {
         this.speed[3] = i;
     }
 
-}//TODO implement momento system for handeling collisions
+}
