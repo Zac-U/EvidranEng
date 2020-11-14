@@ -49,4 +49,8 @@ public class Stage implements drawable{
 
     public Level getLevel() {return level;}
 
+    public void setLevel(Level L) {
+        level = L;
+    }
+
 }

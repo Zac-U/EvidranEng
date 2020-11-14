@@ -14,8 +14,13 @@ public class Coin extends Collectible {
     }
 
     // adds value to the score and then gets destroyed
-    public void collect(entity player) {
+    public void collect(player player) {
         player.addScore(value);
         collected = true;
+    }
+
+    @Override
+    public void collect(entity player) {
+
     }
 }

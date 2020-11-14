@@ -10,6 +10,8 @@ public class wall extends entity {
 
     @Override
     public void tick(game g) {
-
+        //set speed to standard speed
+        //move
+        //if collide
     }
 }
