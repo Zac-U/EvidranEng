@@ -1,5 +1,7 @@
 package engine.physics;
 
+import engine.event.collisionEvent;
+
 //class describes objects that can move
 public class Moveable extends Collide {
 
@@ -33,7 +35,7 @@ public class Moveable extends Collide {
 
     //go through each speed, create a momento of the object, try move
     //if fail revert to momento
-    public void Move(CollideList col){
+    public boolean Move(CollideList col){
         for(int i = 0; i<this.speed.length; i++) {
             if(speed[i] != 0 && collider) {
                 Moveable temp = this.createMomento();

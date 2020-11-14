@@ -40,15 +40,11 @@ public abstract class entity extends Moveable implements drawable, tick {
         return false;
     }
 
-    public void mouseClick(windowEvent E) {
+    public void mouseClick(windowEvent E) {}
 
-    }
+    public void keyPressed(windowEvent E) {}
 
-    public void keyPressed(windowEvent E) {
+    public void keyReleased(windowEvent E) {}
 
-    }
-
-    public void keyReleased(windowEvent E) {
-
-    }
+    protected
 }
