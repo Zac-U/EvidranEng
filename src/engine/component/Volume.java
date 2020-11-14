@@ -10,7 +10,8 @@ public class Volume extends Location {
 
     public Volume(int x, int y, int vX, int vY) {
         super(x,y);
-
+        volX = vX;
+        volY = vY;
     }
 
     public Volume(Volume v) {
@@ -66,7 +67,7 @@ public class Volume extends Location {
     public boolean locateInVol(Location point)  {
         //if point is greater than TL and less the BR then it's in point
         if(  (this.getTL().greaterX(point.getX()) && this.getTL().greaterY(point.getY())) &&
-                (this.getBR().lesserX(point.getX()) && this.getTL().lesserX(point.getY()))      )  {
+                (this.getBR().lesserX(point.getX()) && this.getTL().lesserY(point.getY()))      )  {
             return true;
         }
         return false;

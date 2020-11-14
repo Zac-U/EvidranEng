@@ -67,6 +67,8 @@ public class Level implements drawable{
         for (entity e: backGround) {e.draw(board);}
 
         for (entity e: elements) {e.draw(board);}
+
+        lastDrawn.draw(board);
     }
 
     public void inputEvent(windowEvent wE) {

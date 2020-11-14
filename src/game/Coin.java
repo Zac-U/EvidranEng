@@ -19,8 +19,5 @@ public class Coin extends Collectible {
         collected = true;
     }
 
-    @Override
-    public void collect(entity player) {
 
-    }
 }

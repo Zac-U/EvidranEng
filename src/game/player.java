@@ -67,5 +67,6 @@ public class player extends entity {
         System.out.print("Drawing\n");
         canvas.setFill(Color.RED);
         canvas.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
+        System.out.print(this.getX()+ " " + this.getY() +"\n");
     }
 }
