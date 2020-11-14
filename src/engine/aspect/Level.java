@@ -2,6 +2,7 @@ package engine.aspect;
 
 import engine.draw.drawable;
 import engine.entity.entity;
+import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
 
 import java.util.ArrayList;
@@ -60,6 +61,18 @@ public class Level implements drawable {
         for (entity e: elements
              ) {
             e.draw(board);
+        }
+    }
+
+    public void inputEvent(windowEvent wE) {
+        if(wE.getEvent().equals("MOUSECLICKED")) {
+            //update mouseclicked entities
+        }
+        else if(wE.getEvent().equals("KEYPRESSED")) {
+            //update keypressed chain
+        }
+        else if(wE.getKey().equals("KEYRELEASED")) {
+            //update key released
         }
     }
 }
