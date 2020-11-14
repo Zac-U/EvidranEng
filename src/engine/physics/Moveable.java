@@ -40,11 +40,16 @@ public class Moveable extends Collide {
             if(speed[i] != 0 && collider) {
                 Moveable temp = this.createMomento();
                 this.Move(i);
-                if(collidesWith(this)) {this.revertMomento(temp);}
+                if(collidesWith(this)) {
+                    this.revertMomento(temp);
+                    return true;
+                }
             }
             else if(speed[i] != 0 && !collider) {
                 this.Move(i);
+                return false;
             }
+            return false;
 
         }
     }
