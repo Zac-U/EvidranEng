@@ -39,9 +39,9 @@ public class Window extends Application {
         tick.game Gam = game.Main.main();
 
         primaryStage.setTitle("Evidran");
-        Canvas board = new Canvas(primaryStage.getWidth(),primaryStage.getHeight());
-        Group g = new Group(board);
-        Scene scene = new Scene(g);
+        Canvas board = new Canvas(1920,1080);
+        Group gu = new Group(board);
+        Scene scene = new Scene(gu);
         primaryStage.setScene(scene);
 
 
@@ -62,6 +62,7 @@ public class Window extends Application {
                     public void handle(MouseEvent mouseEvent) {
                        int tempX = (int) mouseEvent.getX();
                        int tempY = (int) mouseEvent.getY();
+                       System.out.print("\t"+tempX+" "+ tempY+"\n");
                        Location temp = new Location(tempX, tempY);
                         Gam.passInputEvent(getEvent("MOUSEPRESSED", temp));
                     }
@@ -86,7 +87,10 @@ public class Window extends Application {
             public void handle(long currentNanoTime)
             {
                 count++;
-                Gam.draw(board.getGraphicsContext2D());
+                GraphicsContext temp = board.getGraphicsContext2D();
+                temp.setFill(Color.BLACK);
+                temp.fillRect(0,0,1920,1080);
+                Gam.draw(temp);
                 if((count % 2) == 0) {Gam.update();}
                 if(count >= 60) {count = 0;}
 
