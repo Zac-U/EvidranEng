@@ -93,4 +93,10 @@ public class Volume extends Location {
         return false;
     }
 
+    protected void setMomento(Volume v) {
+        super.setMomento(v.getLocation());
+        this.setVolX(v.getVolX());
+        this.setVolY(v.getVolY());
+    }
+
 }

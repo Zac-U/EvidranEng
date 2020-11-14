@@ -80,4 +80,9 @@ public class Location {
         if(L.x == this.x && L.y == this.y) {return true;}
         return false;
     }
+
+    protected void setMomento(Location L) {
+        this.x = L.x;
+        this.y = L.y;
+    }
 }
