@@ -7,7 +7,7 @@ public class Boost extends Collectible {
     int speedUp;
 
     public Boost(entity e) {
-        super(e);
+        super(e, "game/Resources.Graphics.4k/gph_coin.png");
         speedUp = 10;
     }
 
@@ -15,5 +15,6 @@ public class Boost extends Collectible {
     public void collect(entity player) {
         int newSpeed = player.getSpeedRight() + speedUp;
         player.setSpeedRight(newSpeed);
+        collected = true;
     }
 }
