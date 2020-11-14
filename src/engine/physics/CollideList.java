@@ -10,4 +10,10 @@ public class CollideList {
         elements.add(c);
     }
 
+    public void remove(collide c){elements.remove(c);}
+
+    public void addList(CollideList cL){elements.addAll(cL.elements);}
+
+
+
 }

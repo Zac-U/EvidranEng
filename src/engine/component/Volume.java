@@ -1,5 +1,9 @@
 package engine.component;
 
+/***
+ * A POJO for holding a rectangular reigon of space starting from a location that is in the top left of the rectangle
+ *
+ */
 public class Volume extends Location {
 
     private int volX, volY;
