@@ -1,6 +1,8 @@
 package engine.core;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -15,17 +17,13 @@ import javafx.scene.Group;
 
 public class Window extends Application {
 
-    Canvas board = new Canvas();
-    Stage core;
     String title;
+    tick.game g;
 
     public Window(String title) {
         this.title = title;
     }
 
-    public Canvas getCanvas(){return this.board;}
-
-    public void render() {core.show();}
 
     public static void main(String[] args) {
         launch(args);
@@ -33,22 +31,51 @@ public class Window extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        core = primaryStage;
-        core.setTitle(this.title);
+        primaryStage.setTitle(this.title);
+        Canvas board = new Canvas(primaryStage.getWidth(),primaryStage.getHeight());
         Group g = new Group(board);
         Scene scene = new Scene(g);
-        core.setScene(scene);
-        core.show();
+        primaryStage.setScene(scene);
+
         //TODO: add callbacks
 
-        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                System.out.println("Hello World");
+        scene.setOnKeyPressed(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        //pass key event to game
+                    }
+                });
 
+        scene.setOnMouseClicked(
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        //pass click event to game
+                    }
+                }
+        );
+
+        scene.setOnKeyReleased(
+                new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent keyEvent) {
+                        //pass event to game
+                    }
+                }
+        );
+
+        new AnimationTimer()
+        {
+            public void handle(long currentNanoTime)
+            {
+                //stuff to draw/tick here here
             }
-        };
+        }.start();
 
+        primaryStage.show();
     }
 
 
