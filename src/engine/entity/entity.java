@@ -12,7 +12,7 @@ import javafx.scene.canvas.Canvas;
  * when creating a "Game" the developer creates their own entities by extending this class
  * and overwriting the tick method as well as supplying a facade object
  */
-public class entity extends Moveable implements drawable, tick {
+public abstract class entity extends Moveable implements drawable, tick {
 
     facade f;
 
@@ -37,10 +37,5 @@ public class entity extends Moveable implements drawable, tick {
     public boolean equals(entity e) {
         if(super.equals(e.getSuper())) {return true;}
         return false;
-    }
-
-    @Override
-    public void tick(game g) {
-
     }
 }
