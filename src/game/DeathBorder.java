@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 
 public class DeathBorder extends entity {
 
-    //image picture = new image("D:\\Evidran\\src\\game\\Resources\\Graphics\\4k\\gph_errorwall.PNG");
+    image picture = new image("src/game/Resources/Graphics.1080p/gph_errorwall.png");
 
     DeathBorder(int x, int y, int volx, int voly) {
         super(x,y,volx,voly);

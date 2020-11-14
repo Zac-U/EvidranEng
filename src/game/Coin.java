@@ -1,5 +1,6 @@
 package game;
 
+import engine.draw.image;
 import engine.entity.entity;
 import java.util.Random;
 
@@ -8,7 +9,7 @@ public class Coin extends Collectible {
     int value;
 
     public Coin(entity e, int x, int y, int volx, int voly) {
-        super(x, y, volx, voly, "game/Resources.Graphics.4k/gph_coin.png");
+        super(x, y, volx, voly, "file:src/game/Resources.Graphics.1080p/gph_coin.png");
         Random rand = new Random();
         value = (1 + rand.nextInt(3)) * 10;
     }
