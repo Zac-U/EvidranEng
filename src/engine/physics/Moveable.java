@@ -38,25 +38,6 @@ public class Moveable extends Collide {
         else if(i == 3) {this.addY(-speed[i]);}
     }
 
-    //go through each speed, create a momento of the object, try move
-    //if fail revert to momento
-    public void Move(CollideList col){
-        for(int i = 0; i<this.speed.length; i++) {
-            if(speed[i] != 0 && collider) {
-                Moveable temp = this.createMomento();
-                this.Move(i);
-                if(collidesWith(this)) {
-                    this.revertMomento(temp);
-
-                }
-            }
-            else if(speed[i] != 0 && !collider) {
-                this.Move(i);
-            }
-
-        }
-    }
-
     public collisionEvent createEvent(entity e, int i) {
         if(i == 0) {return new collisionEvent(e, "UP");}
         else if(i == 1) {return new collisionEvent(e, "RIGHT");}

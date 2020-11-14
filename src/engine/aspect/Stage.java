@@ -47,4 +47,6 @@ public class Stage implements drawable{
         return level.getEntityList();
     }
 
+    public Level getLevel() {return level;}
+
 }

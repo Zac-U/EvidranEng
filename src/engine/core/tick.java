@@ -1,5 +1,6 @@
 package engine.core;
 
+import engine.aspect.Level;
 import engine.aspect.Stage;
 import engine.draw.drawable;
 import engine.entity.entity;
@@ -22,6 +23,7 @@ public interface tick {
         void update();
         void draw(Canvas board);
         Set<entity> getEntityList();
+        Level getLevel();
 
     }
 

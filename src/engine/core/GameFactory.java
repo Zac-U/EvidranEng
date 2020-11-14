@@ -1,5 +1,6 @@
 package engine.core;
 
+import engine.aspect.Level;
 import engine.aspect.Stage;
 import engine.entity.entity;
 import engine.event.event;
@@ -66,6 +67,11 @@ public class GameFactory {
         @Override
         public Set<entity> getEntityList() {
             return currentStage.getEntityList();
+        }
+
+        @Override
+        public Level getLevel() {
+            return currentStage.getLevel();
         }
 
         @Override
