@@ -62,10 +62,10 @@ public class player extends entity {
         }
     }
 
-    public void draw(Canvas canvas) {
+    public void draw(GraphicsContext canvas) {
         //picture.draw(canvas, super.getLocation());
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.RED);
-        gc.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
+        System.out.print("Drawing\n");
+        canvas.setFill(Color.RED);
+        canvas.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
     }
 }

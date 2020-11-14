@@ -4,6 +4,7 @@ package engine.aspect;
 import engine.component.Volume;
 import engine.draw.*;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 //button class describes buttons
 public class Button extends Volume implements drawable{
@@ -25,7 +26,7 @@ public class Button extends Volume implements drawable{
     }
 
     @Override
-    public void draw(Canvas board) {
+    public void draw(GraphicsContext board) {
         f.giveVolume(super.getVolume());
         f.draw(board);
     }

@@ -14,14 +14,14 @@ public class RenderList implements  drawable{
         elements.add(d);
     }
     
-    public void render(Canvas c)  {
+    public void render(GraphicsContext c)  {
         for (drawable d: elements) {
             d.draw(c);
         }
     }
 
     @Override
-    public void draw(Canvas board) {
+    public void draw(GraphicsContext board) {
         render(board);
     }
 }

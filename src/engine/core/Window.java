@@ -86,7 +86,7 @@ public class Window extends Application {
             public void handle(long currentNanoTime)
             {
                 count++;
-                Gam.draw(board);
+                Gam.draw(board.getGraphicsContext2D());
                 if((count % 2) == 0) {Gam.update();}
                 if(count >= 60) {count = 0;}
 
