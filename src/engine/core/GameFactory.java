@@ -18,11 +18,9 @@ import java.util.Set;
  */
 public class GameFactory {
 
-    Game game;
+    Game game = new Game();
 
-    public GameFactory(){
-        game = new Game();
-    }
+    public GameFactory(){}
 
     public void addStage(Stage s) {
         game.addStage(s);
@@ -32,9 +30,8 @@ public class GameFactory {
         game.setCurrentStage(s);
     }
 
-    public void create(String title) {
-        Window w = new Window(title, game);
-        Window.launch();
+    public tick.game create() {
+        return game;
     }
 
 
@@ -43,7 +40,7 @@ public class GameFactory {
         //core game loop
         //window
         Stage currentStage;
-        ArrayList<Stage> elements;
+        ArrayList<Stage> elements = new ArrayList<>();
 
         public void visit(event e) {
             e.visit(this);

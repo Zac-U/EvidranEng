@@ -60,4 +60,6 @@ public abstract class entity extends Moveable implements drawable, tick {
     }
 
     public void visit(entity e) {}
+
+    public void visit(entity e, String direction){}
 }

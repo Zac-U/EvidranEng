@@ -19,13 +19,6 @@ import javafx.scene.Group;
 
 public class Window extends Application {
 
-    String title;
-    tick.game game;
-
-    public Window(String title, tick.game game) {
-        this.game = game;
-        this.title = title;
-    }
 
 
     public static void main(String[] args) {
@@ -42,13 +35,16 @@ public class Window extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle(this.title);
+
+        tick.game Gam = game.Main.main();
+
+        primaryStage.setTitle("Evidran");
         Canvas board = new Canvas(primaryStage.getWidth(),primaryStage.getHeight());
         Group g = new Group(board);
         Scene scene = new Scene(g);
         primaryStage.setScene(scene);
 
-        //TODO: add callbacks
+
 
         scene.setOnKeyPressed(
                 new EventHandler<KeyEvent>()
@@ -56,7 +52,7 @@ public class Window extends Application {
                     public void handle(KeyEvent e)
                     {
                         String code = e.getCode().toString();
-                        game.passInputEvent(getEvent("KEYPRESSED", code));
+                        Gam.passInputEvent(getEvent("KEYPRESSED", code));
                     }
                 });
 
@@ -67,7 +63,7 @@ public class Window extends Application {
                        int tempX = (int) mouseEvent.getX();
                        int tempY = (int) mouseEvent.getY();
                        Location temp = new Location(tempX, tempY);
-                        game.passInputEvent(getEvent("MOUSEPRESSED", temp));
+                        Gam.passInputEvent(getEvent("MOUSEPRESSED", temp));
                     }
                 }
         );
@@ -77,7 +73,7 @@ public class Window extends Application {
                     @Override
                     public void handle(KeyEvent keyEvent) {
                         String code = keyEvent.getCode().toString();
-                        game.passInputEvent(getEvent("KEYRELEASED", code));
+                        Gam.passInputEvent(getEvent("KEYRELEASED", code));
                     }
                 }
         );
@@ -90,8 +86,8 @@ public class Window extends Application {
             public void handle(long currentNanoTime)
             {
                 count++;
-                game.draw(board);
-                if((count % 2) == 0) {game.update();}
+                Gam.draw(board);
+                if((count % 2) == 0) {Gam.update();}
                 if(count >= 60) {count = 0;}
 
             }
