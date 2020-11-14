@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Stage implements drawable{
 
     ArrayList<Button> buttons;
+    Level level;
 
     @Override
     public void draw(Canvas board) {
@@ -21,6 +22,7 @@ public class Stage implements drawable{
              ) {
             b.draw(board);
         }
+        level.draw(board);
     }
 
 
