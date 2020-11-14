@@ -14,11 +14,10 @@ import java.util.Set;
  * lists of collidables, moveables, drawables, player, entities
  */
 
-public class Level implements drawable {
+public class Level implements drawable{
 
     private ArrayList<entity> elements = new ArrayList<>();
 
-    //add observer pattern for mouseclicked, keypressed, keyreleased, collision
 
     private ArrayList<entity> mouseClicked = new ArrayList<>();
 
@@ -109,4 +108,6 @@ public class Level implements drawable {
     public void removeBackground(entity e) {
         backGround.remove(e);
     }
+
+
 }

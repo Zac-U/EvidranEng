@@ -22,6 +22,10 @@ public abstract class entity extends Moveable implements drawable, tick {
         super(e.getSuper());
     }
 
+    public entity(int x, int y, int volx, int voly) {
+        super(x,y,volx,voly);
+    }
+
     protected Moveable getSuper() {
         return super.clone();
     }
