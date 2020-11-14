@@ -7,6 +7,7 @@ import engine.entity.entity;
 import engine.event.windowEvent;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 public interface tick {
@@ -22,7 +23,7 @@ public interface tick {
         void passInputEvent(windowEvent e);
         void update();
         void draw(Canvas board);
-        Set<entity> getEntityList();
+        ArrayList<entity> getEntityList();
         Level getLevel();
 
     }

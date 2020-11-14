@@ -8,7 +8,7 @@ import engine.core.tick;
 public class Main {
     public static tick.game main() {
         GameFactory maker = new GameFactory();
-        player p = new player(1920/2, 1024/2,50,50);
+        player p = new player(100, 100,50,50);
         Level l = new Level();
         l.addEntity(p);
         l.setLastDrawn(p);
@@ -19,6 +19,7 @@ public class Main {
         st.setLevel(l);
 
         maker.addStage(st);
+        maker.setStartStage(st);
 
         return maker.create();
 

@@ -5,6 +5,7 @@ import engine.draw.drawable;
 import engine.entity.entity;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -61,7 +62,7 @@ public class Level implements drawable{
 
 
     @Override
-    public void draw(Canvas board) {
+    public void draw(GraphicsContext board) {
 
         for (entity e: backGround) {e.draw(board);}
 
@@ -81,7 +82,7 @@ public class Level implements drawable{
                 i.keyPressed(wE);
             }
         }
-        else if(wE.getKey().equals("KEYRELEASED")) {
+        else if(wE.getEvent().equals("KEYRELEASED")) {
             for (entity i: keyReleased
                  ) {
                 i.keyReleased(wE);
@@ -99,8 +100,8 @@ public class Level implements drawable{
         for (entity i: elements) {i.tick(gam);}
     }
 
-    public Set<entity> getEntityList() {
-        return (Set<entity>) elements;
+    public ArrayList<entity> getEntityList() {
+        return elements;
     }
 
     public void addBackground(entity e) {

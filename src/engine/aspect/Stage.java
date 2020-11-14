@@ -6,6 +6,7 @@ import engine.draw.drawable;
 import engine.entity.entity;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -23,11 +24,11 @@ public class Stage implements drawable{
     String name;
 
     @Override
-    public void draw(Canvas board) {
-        for (Button b: buttons
-             ) {
-            b.draw(board);
-        }
+    public void draw(GraphicsContext board) {
+        //for (Button b: buttons
+            // ) {
+            //b.draw(board);
+       //}
         level.draw(board);
     }
 
@@ -43,7 +44,7 @@ public class Stage implements drawable{
         level.update(gam);
     }
 
-    public Set<entity> getEntityList() {
+    public ArrayList<entity> getEntityList() {
         return level.getEntityList();
     }
 

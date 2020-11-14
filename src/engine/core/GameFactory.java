@@ -6,6 +6,7 @@ import engine.entity.entity;
 import engine.event.event;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -37,8 +38,6 @@ public class GameFactory {
 
     public class Game implements tick.game {
 
-        //core game loop
-        //window
         Stage currentStage;
         ArrayList<Stage> elements = new ArrayList<>();
 
@@ -81,7 +80,7 @@ public class GameFactory {
         }
 
         @Override
-        public Set<entity> getEntityList() {
+        public ArrayList<entity> getEntityList() {
             return currentStage.getEntityList();
         }
 
@@ -91,7 +90,7 @@ public class GameFactory {
         }
 
         @Override
-        public void draw(Canvas board) {
+        public void draw(GraphicsContext board) {
             currentStage.draw(board);
         }
     }

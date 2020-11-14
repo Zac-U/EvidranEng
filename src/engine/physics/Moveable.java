@@ -3,6 +3,7 @@ package engine.physics;
 import engine.entity.entity;
 import engine.event.collisionEvent;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 //class describes objects that can move
@@ -46,7 +47,7 @@ public class Moveable extends Collide {
         return null;
     }
 
-    public collisionEvent move(Set<entity> elements) {
+    public collisionEvent move(ArrayList<entity> elements) {
            //for every direction this object tries to move
         for (int i = 0; i < speed.length ; i++) {
             this.saveMomento();//save a momento

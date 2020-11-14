@@ -17,9 +17,8 @@ public class image {
 
     }
 
-    public void draw(Canvas canvas, Location local) {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.drawImage(picture,local.getX(),local.getY());
+    public void draw(GraphicsContext canvas, Location local) {
+        canvas.drawImage(picture,local.getX(),local.getY());
     }
 
 }

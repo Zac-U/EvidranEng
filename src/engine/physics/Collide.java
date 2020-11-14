@@ -24,7 +24,7 @@ public class Collide extends Volume {
     }
 
     public Collide clone() {
-        return new Collide(this);
+        return new Collide(this.getX(),this.getY(),this.getVolX(),this.getVolY());
     }
 
     public Volume getVolume() {return super.clone();}

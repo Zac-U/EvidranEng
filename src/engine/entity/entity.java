@@ -7,6 +7,7 @@ import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import engine.physics.Moveable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 /***
  * a moveable object with a facade
@@ -31,9 +32,9 @@ public abstract class entity extends Moveable implements drawable, tick {
     }
 
     @Override
-    public void draw(Canvas board) {
-        f.giveVolume(super.getVolume());
-        f.draw(board);
+    public void draw(GraphicsContext board) {
+        //f.giveVolume(super.getVolume());
+        //f.draw(board);
     }
 
     protected void setFacade(facade f) {
