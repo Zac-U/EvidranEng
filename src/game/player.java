@@ -29,27 +29,35 @@ public class player extends entity {
     @Override
     public void keyPressed(windowEvent E) {
         if(E.getKey().equals("A")) {
+            System.out.print("Setting Speed up\n");
             super.setSpeedUp(sideSpeed);
+            System.out.print(this.getSpeedUp()+ " speed \n");
         }
         else if(E.getKey().equals("D")) {
+            System.out.print("Setting Speed down\n");
             super.setSpeedDown(sideSpeed);
+            System.out.print(this.getSpeedDown()+ " speed \n");
         }
+        System.out.print(this.getVolX() +" "+ this.getVolY()+" volumes\n");
+
     }
 
     @Override
     public void keyReleased(windowEvent E) {
         if(E.getKey().equals("A")) {
-            super.setSpeedUp(0);
+            this.setSpeedUp(0);
+
         }
         else if(E.getKey().equals("D")) {
-            super.setSpeedDown(0);
+            this.setSpeedDown(0);
         }
     }
 
     @Override
     public void tick(game g) {
-
+        System.out.print(this.getY() + " Y\n");
         collisionEvent collide = super.move(g);
+        System.out.print(this.getY() + " Y\n");
         if(collide != null) {
             collide.getEntity().visit(this, collide.getDirection());
         }
@@ -64,9 +72,8 @@ public class player extends entity {
 
     public void draw(GraphicsContext canvas) {
         //picture.draw(canvas, super.getLocation());
-        System.out.print("Drawing\n");
         canvas.setFill(Color.RED);
         canvas.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
-        System.out.print(this.getX()+ " " + this.getY() +"\n");
+
     }
 }
