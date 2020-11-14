@@ -2,6 +2,7 @@ package engine.core;
 
 import engine.aspect.Stage;
 import engine.draw.drawable;
+import engine.entity.entity;
 import engine.event.windowEvent;
 
 import java.awt.*;
@@ -20,6 +21,7 @@ public interface tick {
         void passInputEvent(windowEvent e);
         void update();
         void draw(Canvas board);
+        Set<entity> getEntityList();
 
     }
 

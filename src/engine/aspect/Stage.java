@@ -3,11 +3,13 @@ package engine.aspect;
 import engine.component.Volume;
 import engine.core.tick;
 import engine.draw.drawable;
+import engine.entity.entity;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 /***
  * A Stage is an aspect of a game, basicaly a screen, whether that's the menu or the level
@@ -39,6 +41,10 @@ public class Stage implements drawable{
 
     public void update(tick.game gam){
         level.update(gam);
+    }
+
+    public Set<entity> getEntityList() {
+        return level.getEntityList();
     }
 
 }

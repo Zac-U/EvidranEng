@@ -8,4 +8,9 @@ public class collisionEvent {
     entity e;
     String direction;
 
+    public collisionEvent(entity E, String direction) {
+        this.e = E;
+        this.direction = direction;
+    }
+
 }

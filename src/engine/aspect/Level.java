@@ -7,6 +7,7 @@ import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 /***
  * class contains all the objects used to build a level
@@ -93,5 +94,9 @@ public class Level implements drawable {
              ) {
             i.tick(gam);
         }
+    }
+
+    public Set<entity> getEntityList() {
+        return (Set<entity>) elements;
     }
 }

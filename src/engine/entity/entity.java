@@ -48,6 +48,10 @@ public abstract class entity extends Moveable implements drawable, tick {
     public void keyReleased(windowEvent E) {}
 
     protected collisionEvent move(game game) {
+       return super.move(game.getEntityList());
+    }
 
+    public boolean collidesWith(entity e) {
+        return super.collidesWith(e.getCollide());
     }
 }

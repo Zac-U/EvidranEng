@@ -1,9 +1,14 @@
 package engine.physics;
 
+import engine.entity.entity;
 import engine.event.collisionEvent;
+
+import java.util.Set;
 
 //class describes objects that can move
 public class Moveable extends Collide {
+
+    Moveable momento;
 
     private int[] speed = new int[4];
 
@@ -35,23 +40,44 @@ public class Moveable extends Collide {
 
     //go through each speed, create a momento of the object, try move
     //if fail revert to momento
-    public boolean Move(CollideList col){
+    public void Move(CollideList col){
         for(int i = 0; i<this.speed.length; i++) {
             if(speed[i] != 0 && collider) {
                 Moveable temp = this.createMomento();
                 this.Move(i);
                 if(collidesWith(this)) {
                     this.revertMomento(temp);
-                    return true;
+
                 }
             }
             else if(speed[i] != 0 && !collider) {
                 this.Move(i);
-                return false;
             }
-            return false;
 
         }
+    }
+
+    public collisionEvent createEvent(entity e, int i) {
+        if(i == 0) {return new collisionEvent(e, "UP");}
+        else if(i == 1) {return new collisionEvent(e, "RIGHT");}
+        else if(i == 2) {return new collisionEvent(e, "LEFT");}
+        else if(i == 3) {return new collisionEvent(e, "DOWN");}
+        return null;
+    }
+
+    public collisionEvent move(Set<entity> elements) {
+           //for every direction this object tries to move
+        for (int i = 0; i < speed.length ; i++) {
+            this.saveMomento();//save a momento
+            for (entity e: elements
+                 ) {
+                if(e.collidesWith(this.getCollide())) {
+                    return createEvent(e, i);
+                }
+            }
+
+        }
+        return null;
     }
 
     public Moveable clone() {
@@ -94,5 +120,14 @@ public class Moveable extends Collide {
         }
         return true;
     }
+
+    public void saveMomento() {
+        this.momento = this.clone();
+    }
+
+    public void revertMomento() {
+        this.revertMomento(momento);
+    }
+
 
 }

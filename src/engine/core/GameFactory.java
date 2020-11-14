@@ -1,6 +1,7 @@
 package engine.core;
 
 import engine.aspect.Stage;
+import engine.entity.entity;
 import engine.event.event;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
@@ -60,6 +61,11 @@ public class GameFactory {
 
         @Override
         public void draw(java.awt.Canvas board) {
+        }
+
+        @Override
+        public Set<entity> getEntityList() {
+            return currentStage.getEntityList();
         }
 
         @Override
