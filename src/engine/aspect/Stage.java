@@ -2,8 +2,10 @@ package engine.aspect;
 
 import engine.component.Volume;
 import engine.draw.drawable;
+import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 /***
@@ -25,19 +27,8 @@ public class Stage implements drawable{
         level.draw(board);
     }
 
-
-    public class LevelFrame extends Volume implements drawable {
-
-        public LevelFrame(Volume v) {
-            super(v);
-        }
-
-        @Override
-        public void draw(Canvas board) {
-
-        }
+    public void sendInput(windowEvent e) {
+        level.inputEvent(e);
     }
-
-
 
 }

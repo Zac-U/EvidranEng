@@ -85,4 +85,6 @@ public class Location {
         this.x = L.x;
         this.y = L.y;
     }
+
+
 }

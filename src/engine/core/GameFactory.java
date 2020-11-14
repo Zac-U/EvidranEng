@@ -2,6 +2,7 @@ package engine.core;
 
 import engine.aspect.Stage;
 import engine.event.event;
+import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
 
 import java.util.ArrayList;
@@ -45,6 +46,11 @@ public class GameFactory {
         @Override
         public void addStage(Stage s) {
             elements.add(s);
+        }
+
+        @Override
+        public void passInputEvent(windowEvent e) {
+            currentStage.sendInput(e);
         }
 
         @Override

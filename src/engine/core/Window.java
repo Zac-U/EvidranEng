@@ -1,5 +1,7 @@
 package engine.core;
 
+import engine.component.Location;
+import engine.event.windowEvent;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.input.KeyEvent;
@@ -18,7 +20,7 @@ import javafx.scene.Group;
 public class Window extends Application {
 
     String title;
-    tick.game g;
+    tick.game game;
 
     public Window(String title) {
         this.title = title;
@@ -27,6 +29,14 @@ public class Window extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    private windowEvent getEvent(String evt, String key) {
+       return new windowEvent(evt, key);
+    }
+
+    private windowEvent getEvent(String evt, Location key) {
+        return new windowEvent(evt, key);
     }
 
     @Override
@@ -45,7 +55,7 @@ public class Window extends Application {
                     public void handle(KeyEvent e)
                     {
                         String code = e.getCode().toString();
-                        //pass key event to game
+                        game.passInputEvent(getEvent("KEYPRESSED", code));
                     }
                 });
 
@@ -53,7 +63,10 @@ public class Window extends Application {
                 new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
-                        //pass click event to game
+                       int tempX = (int) mouseEvent.getX();
+                       int tempY = (int) mouseEvent.getY();
+                       Location temp = new Location(tempX, tempY);
+                        game.passInputEvent(getEvent("MOUSEPRESSED", temp));
                     }
                 }
         );
@@ -62,16 +75,24 @@ public class Window extends Application {
                 new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent keyEvent) {
-                        //pass event to game
+                        String code = keyEvent.getCode().toString();
+                        game.passInputEvent(getEvent("KEYRELEASED", code));
                     }
                 }
         );
 
+
+
         new AnimationTimer()
         {
+            int count = 0;
             public void handle(long currentNanoTime)
             {
-                //stuff to draw/tick here here
+                count++;
+                game.draw(board);
+                if((count % 2) == 0) {game.update();}
+                if(count >= 60) {count = 0;}
+
             }
         }.start();
 
