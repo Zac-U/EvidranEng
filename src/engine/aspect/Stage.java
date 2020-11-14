@@ -18,6 +18,7 @@ public class Stage implements drawable{
 
     ArrayList<Button> buttons;
     Level level;
+    String name;
 
     @Override
     public void draw(Canvas board) {
@@ -26,6 +27,10 @@ public class Stage implements drawable{
             b.draw(board);
         }
         level.draw(board);
+    }
+
+    public Stage(String name) {
+        this.name = name;
     }
 
     public void sendInput(windowEvent e) {
