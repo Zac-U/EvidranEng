@@ -1,6 +1,10 @@
 package engine.core;
 
+import engine.aspect.Stage;
 import engine.event.event;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 /***
  * Class creates a game instance by creating a thread and a window that interact with a singleton game object
@@ -12,12 +16,34 @@ public class GameFactory {
 
 
     public class Game implements tick.game {
-        //list of stages
+
         //core game loop
         //window
+        Stage currentStage;
+        ArrayList<Stage> elements;
 
         public void visit(event e) {
             e.visit(this);
+        }
+
+        @Override
+        public Stage getCurrentStage() {
+            return currentStage;
+        }
+
+        @Override
+        public Set<Stage> getSetList() {
+            return (Set<Stage>) elements;
+        }
+
+        @Override
+        public void setCurrentStage(Stage s) {
+            this.currentStage = s;
+        }
+
+        @Override
+        public void addStage(Stage s) {
+            elements.add(s);
         }
     }
 

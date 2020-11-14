@@ -69,4 +69,16 @@ public class Moveable extends Collide {
         this.speed[3] = i;
     }
 
+    public boolean equals(Moveable m) {
+        if(this.getCollide().equals(m.getCollide()) && equalsSpeed(m)) {return true;}
+        return false;
+    }
+
+    private boolean equalsSpeed(Moveable m) {
+        for(int i = 0; i< speed.length; i++) {
+            if(this.speed[i] != m.speed[i]) {return false;}
+        }
+        return true;
+    }
+
 }
