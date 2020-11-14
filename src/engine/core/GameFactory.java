@@ -18,6 +18,25 @@ import java.util.Set;
  */
 public class GameFactory {
 
+    Game game;
+
+    public GameFactory(){
+        game = new Game();
+    }
+
+    public void addStage(Stage s) {
+        game.addStage(s);
+    }
+
+    public void setStartStage(Stage s) {
+        game.setCurrentStage(s);
+    }
+
+    public void create(String title) {
+        Window w = new Window(title, game);
+        Window.launch();
+    }
+
 
     public class Game implements tick.game {
 
@@ -79,5 +98,7 @@ public class GameFactory {
             currentStage.draw(board);
         }
     }
+
+
 
 }

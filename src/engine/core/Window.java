@@ -22,7 +22,8 @@ public class Window extends Application {
     String title;
     tick.game game;
 
-    public Window(String title) {
+    public Window(String title, tick.game game) {
+        this.game = game;
         this.title = title;
     }
 
