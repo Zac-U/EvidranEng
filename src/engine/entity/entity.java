@@ -3,6 +3,7 @@ package engine.entity;
 import engine.core.tick;
 import engine.draw.drawable;
 import engine.draw.facade;
+import engine.event.windowEvent;
 import engine.physics.Moveable;
 import javafx.scene.canvas.Canvas;
 
@@ -37,5 +38,17 @@ public abstract class entity extends Moveable implements drawable, tick {
     public boolean equals(entity e) {
         if(super.equals(e.getSuper())) {return true;}
         return false;
+    }
+
+    public void mouseClick(windowEvent E) {
+
+    }
+
+    public void keyPressed(windowEvent E) {
+
+    }
+
+    public void keyReleased(windowEvent E) {
+
     }
 }

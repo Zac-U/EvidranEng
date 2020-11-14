@@ -5,6 +5,8 @@ public class Moveable extends Collide {
 
     private int[] speed = new int[4];
 
+    private boolean collider = true;
+
     public Moveable(int x, int y, int volx, int voly) {
         super(x,y,volx,voly);
         for(int i =0; i < speed.length; i++) {speed[i] = 0;}
@@ -20,6 +22,8 @@ public class Moveable extends Collide {
         return super.clone();
     }
 
+    public void setCollider(boolean b) {collider = b;}
+
     private void Move(int i) {
         if(i == 0) {this.addX(-speed[i]);}
         else if(i == 1) { this.addY(speed[i]);}
@@ -31,10 +35,13 @@ public class Moveable extends Collide {
     //if fail revert to momento
     public void Move(CollideList col){
         for(int i = 0; i<this.speed.length; i++) {
-            if(speed[i] != 0) {
+            if(speed[i] != 0 && collider) {
                 Moveable temp = this.createMomento();
                 this.Move(i);
                 if(collidesWith(this)) {this.revertMomento(temp);}
+            }
+            else if(speed[i] != 0 && !collider) {
+                this.Move(i);
             }
 
         }

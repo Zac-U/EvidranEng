@@ -1,5 +1,6 @@
 package engine.aspect;
 
+import engine.core.tick;
 import engine.draw.drawable;
 import engine.entity.entity;
 import engine.event.windowEvent;
@@ -66,13 +67,31 @@ public class Level implements drawable {
 
     public void inputEvent(windowEvent wE) {
         if(wE.getEvent().equals("MOUSECLICKED")) {
-            //update mouseclicked entities
+            for (entity i : mouseClicked
+                 ) {
+                i.mouseClick(wE);
+            }
         }
         else if(wE.getEvent().equals("KEYPRESSED")) {
-            //update keypressed chain
+            for (entity i: keyPressed
+                 ) {
+                i.keyPressed(wE);
+            }
         }
         else if(wE.getKey().equals("KEYRELEASED")) {
-            //update key released
+            for (entity i: keyReleased
+                 ) {
+                i.keyReleased(wE);
+            }
+        }
+    }
+
+
+
+    public void update(tick.game gam) {
+        for (entity i: elements
+             ) {
+            i.tick(gam);
         }
     }
 }

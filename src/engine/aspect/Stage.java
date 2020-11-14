@@ -1,6 +1,7 @@
 package engine.aspect;
 
 import engine.component.Volume;
+import engine.core.tick;
 import engine.draw.drawable;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
@@ -29,6 +30,10 @@ public class Stage implements drawable{
 
     public void sendInput(windowEvent e) {
         level.inputEvent(e);
+    }
+
+    public void update(tick.game gam){
+        level.update(gam);
     }
 
 }

@@ -54,6 +54,15 @@ public class GameFactory {
         }
 
         @Override
+        public void update() {
+            currentStage.update(this);
+        }
+
+        @Override
+        public void draw(java.awt.Canvas board) {
+        }
+
+        @Override
         public void draw(Canvas board) {
             currentStage.draw(board);
         }
