@@ -13,12 +13,13 @@ public class image {
 
     public image(String directory) {
         this.directory = directory;
-        picture = new Image(this.directory);
+        picture = new Image(this.directory, 50, 50, false, false);
 
     }
 
     public void draw(GraphicsContext canvas, Location local) {
         canvas.drawImage(picture,local.getX(),local.getY());
+        System.out.println("x: " + local.getX() + " y: " + local.getY() + "\n");
     }
 
 }
