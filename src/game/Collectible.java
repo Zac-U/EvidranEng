@@ -1,18 +1,30 @@
 package game;
 
+import engine.aspect.Level;
+import engine.aspect.Stage;
+import engine.draw.image;
 import engine.entity.entity;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 
 public abstract class Collectible extends entity {
 
-    public Collectible(entity e) {
+    boolean collected;
+    image myImage;
+
+    public Collectible(entity e, String path) {
         super(e);
+        collected = false;
+        myImage = new image(path);
     }
 
     @Override
     public void tick(game g) {
-
+        if (collected) {
+            Stage stage = g.getCurrentStage();
+            Level level = stage.getLevel();
+            level.removeEntity(this);
+        }
     }
 
     @Override
