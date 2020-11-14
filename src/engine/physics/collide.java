@@ -1,6 +1,6 @@
 package engine.physics;
 
-import engine.Volume;
+import engine.component.Volume;
 
 //POJO class for collision behaviour
 public class collide extends Volume {
@@ -9,8 +9,17 @@ public class collide extends Volume {
         super(x,y,volx,voly);
     }
 
+    public collide(collide c) {
+        super(c.clone());
+    }
+
     public boolean collidesWith(collide c) {
         if(this.Intersect(c)) {return true;}
+        return false;
+    }
+
+    public boolean equals(collide c) {
+        if(super.equals(c.clone())) {return true;}
         return false;
     }
 

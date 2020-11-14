@@ -1,8 +1,7 @@
 package engine.draw;
 
-import engine.Location;
-import javafx.scene.canvas.Canvas;
+import engine.component.Volume;
 
 public interface facade extends drawable{
-    void giveLocation(Location L);
+    void giveVolume(Volume V);
 }

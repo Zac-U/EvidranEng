@@ -1,4 +1,4 @@
-package engine;
+package engine.component;
 
 /***
  * A POJO for holding a 2D point in space
@@ -73,6 +73,11 @@ public class Location {
     //function checks if a given y value is lesser than the held y value
     protected boolean lesserY(int y) {
         if(this.y >= y) {return true;}
+        return false;
+    }
+
+    public boolean equals(Location L) {
+        if(L.x == this.x && L.y == this.y) {return true;}
         return false;
     }
 }

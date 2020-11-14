@@ -1,8 +1,7 @@
 package engine.aspect;
 
 
-import engine.Location;
-import engine.Volume;
+import engine.component.Volume;
 import engine.draw.*;
 import javafx.scene.canvas.Canvas;
 
@@ -10,6 +9,7 @@ import javafx.scene.canvas.Canvas;
 public class Button extends Volume implements drawable{
 
     facade f;
+    boolean clicked; //causes update upon tick
 
     public Button(int x, int y, int volx, int voly) {
         super(x,y,volx, voly);
@@ -21,7 +21,7 @@ public class Button extends Volume implements drawable{
     }
 
     private void setLocal(){
-        f.giveLocation(super.getLocation());
+        f.giveVolume(super.clone());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package engine;
+package engine.component;
 
 public class Volume extends Location {
 
@@ -78,6 +78,15 @@ public class Volume extends Location {
 
     public Location getLocation(){
         return super.clone();
+    }
+
+    public Volume clone() {
+        return new Volume(this);
+    }
+
+    public boolean equals(Volume V) {
+        if(super.equals(V.getLocation()) && this.volX == V.volX && this.volY == V.volY) {return true;}
+        return false;
     }
 
 }
