@@ -2,11 +2,9 @@ package game;
 
 import engine.aspect.Level;
 import engine.aspect.Stage;
-import engine.component.Location;
 import engine.draw.image;
 import engine.entity.entity;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 
 public abstract class Collectible extends entity {
 
