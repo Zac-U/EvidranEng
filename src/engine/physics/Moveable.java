@@ -33,10 +33,10 @@ public class Moveable extends Collide {
     public void setCollider(boolean b) {collider = b;}
 
     private void Move(int i) {
-        if(i == 0) {this.addX(-speed[i]);}
-        else if(i == 1) { this.addY(speed[i]);}
-        else if(i == 2) {this.addX(speed[i]);}
-        else if(i == 3) {this.addY(-speed[i]);}
+        if(i == 0) {this.addY(-speed[i]);}
+        else if(i == 1) { this.addX(speed[i]);}
+        else if(i == 2) {this.addY(speed[i]);}
+        else if(i == 3) {this.addX(-speed[i]);}
     }
 
     public collisionEvent createEvent(entity e, int i) {
@@ -51,9 +51,10 @@ public class Moveable extends Collide {
            //for every direction this object tries to move
         for (int i = 0; i < speed.length ; i++) {
             this.saveMomento();//save a momento
-            for (entity e: elements
-                 ) {
+            Move(i);
+            for (entity e: elements) {
                 if(e.collidesWith(this.getCollide())) {
+                    System.out.print("collision\n");
                     return createEvent(e, i);
                 }
             }

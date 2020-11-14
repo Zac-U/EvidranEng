@@ -14,6 +14,7 @@ public class Collide extends Volume {
     }
 
     public boolean collidesWith(Collide c) {
+        if(this.equals(c)) {return false;}
         if(this.Intersect(c)) {return true;}
         return false;
     }

@@ -88,7 +88,7 @@ public class Window extends Application {
             {
                 count++;
                 GraphicsContext temp = board.getGraphicsContext2D();
-                temp.setFill(Color.BLACK);
+                temp.setFill(Color.WHITE);
                 temp.fillRect(0,0,1920,1080);
                 Gam.draw(temp);
                 if((count % 2) == 0) {Gam.update();}
