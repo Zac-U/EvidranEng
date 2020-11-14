@@ -31,4 +31,8 @@ public class sound{
     public void play() {
         clip.start();
     }
+
+    public void stop() {
+        clip.stop();
+    }
 }
