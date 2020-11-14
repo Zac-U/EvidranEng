@@ -18,9 +18,4 @@ public class Coin extends Collectible {
         player.addScore(value);
         collected = true;
     }
-
-    @Override
-    public void collect(entity player) {
-
-    }
 }
