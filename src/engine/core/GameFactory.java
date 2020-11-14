@@ -1,5 +1,7 @@
 package engine.core;
 
+import engine.event.event;
+
 /***
  * Class creates a game instance by creating a thread and a window that interact with a singleton game object
  * game object has a set of stages and a current stage with a callback that passes any clicks or button presses from
@@ -13,6 +15,10 @@ public class GameFactory {
         //list of stages
         //core game loop
         //window
+
+        public void visit(event e) {
+            e.visit(this);
+        }
     }
 
 }
