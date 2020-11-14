@@ -110,5 +110,21 @@ public class Moveable extends Collide {
         this.revertMomento(momento);
     }
 
+    public int getSpeedUp() {
+        return speed[0];
+    }
+
+    public int getSpeedRight() {
+        return speed[1];
+    }
+
+    public int getSpeedDown() {
+        return speed[2];
+    }
+
+    public int getSpeedLeft() {
+        return speed[3];
+    }
+
 
 }

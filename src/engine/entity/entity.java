@@ -54,4 +54,6 @@ public abstract class entity extends Moveable implements drawable, tick {
     public boolean collidesWith(entity e) {
         return super.collidesWith(e.getCollide());
     }
+
+    public boolean visit(entity e) {}
 }
