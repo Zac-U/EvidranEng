@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 
 public class player extends entity {
 
-    int sideSpeed = 5;
+    int sideSpeed = 15;
 
     int score = 0;
 
