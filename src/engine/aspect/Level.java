@@ -18,6 +18,7 @@ public class Level implements drawable{
 
     private ArrayList<entity> elements = new ArrayList<>();
 
+    private entity lastDrawn;
 
     private ArrayList<entity> mouseClicked = new ArrayList<>();
 
@@ -89,12 +90,13 @@ public class Level implements drawable{
     }
 
 
+    public void setLastDrawn(entity e) {
+        this.lastDrawn = e;
+    }
+
 
     public void update(tick.game gam) {
-        for (entity i: elements
-             ) {
-            i.tick(gam);
-        }
+        for (entity i: elements) {i.tick(gam);}
     }
 
     public Set<entity> getEntityList() {

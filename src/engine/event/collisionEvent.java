@@ -13,4 +13,12 @@ public class collisionEvent {
         this.direction = direction;
     }
 
+    public entity getEntity() {
+        return e;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
 }
