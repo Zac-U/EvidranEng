@@ -1,7 +1,28 @@
 package engine.core;
 
-public class CoreLoop {
+/***
+ * Seperate thread class handles core game loop
+ */
+public class CoreLoop extends Thread{
 
-    //TODO: implement core game loop that updates X times a second before rendering Y times a second, needs to sit in
-    //it's own thread
+    tick.game callee;
+    boolean run = true;
+
+    public CoreLoop(tick.game g) {
+        callee = g;
+    }
+
+    @Override
+    public void run() {
+        try {
+            //core loop here
+            while(run) {
+
+            }
+
+
+        } catch(Exception e) {
+
+        }
+    }
 }

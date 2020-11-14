@@ -99,4 +99,6 @@ public class Volume extends Location {
         this.setVolY(v.getVolY());
     }
 
+    protected Volume getVolume() {return this.clone();}
+
 }

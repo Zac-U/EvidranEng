@@ -26,6 +26,7 @@ public class Button extends Volume implements drawable{
 
     @Override
     public void draw(Canvas board) {
+        f.giveVolume(super.getVolume());
         f.draw(board);
     }
 }

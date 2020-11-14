@@ -8,6 +8,9 @@ import javafx.scene.canvas.Canvas;
 
 /***
  * a moveable object with a facade
+ *
+ * when creating a "Game" the developer creates their own entities by extending this class
+ * and overwriting the tick method as well as supplying a facade object
  */
 public class entity extends Moveable implements drawable, tick {
 
@@ -23,6 +26,7 @@ public class entity extends Moveable implements drawable, tick {
 
     @Override
     public void draw(Canvas board) {
+        f.giveVolume(super.getVolume());
         f.draw(board);
     }
 

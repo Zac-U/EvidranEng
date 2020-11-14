@@ -2,6 +2,7 @@ package engine.core;
 
 import engine.aspect.Stage;
 import engine.event.event;
+import javafx.scene.canvas.Canvas;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -44,6 +45,11 @@ public class GameFactory {
         @Override
         public void addStage(Stage s) {
             elements.add(s);
+        }
+
+        @Override
+        public void draw(Canvas board) {
+            currentStage.draw(board);
         }
     }
 
