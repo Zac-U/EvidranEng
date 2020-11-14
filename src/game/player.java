@@ -15,7 +15,7 @@ public class player extends entity {
 
     int score = 0;
 
-    image picture = new image("file:game/Resources/Graphics.4k/gph_player.png");
+    image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
 
     public void addScore(int i) {
         score += i;
@@ -29,27 +29,32 @@ public class player extends entity {
     @Override
     public void keyPressed(windowEvent E) {
         if(E.getKey().equals("A")) {
+
             super.setSpeedUp(sideSpeed);
+
         }
         else if(E.getKey().equals("D")) {
+
             super.setSpeedDown(sideSpeed);
+
         }
+
     }
 
     @Override
     public void keyReleased(windowEvent E) {
         if(E.getKey().equals("A")) {
-            super.setSpeedUp(0);
+            this.setSpeedUp(0);
+
         }
         else if(E.getKey().equals("D")) {
-            super.setSpeedDown(0);
+            this.setSpeedDown(0);
         }
     }
 
     @Override
     public void tick(game g) {
-
-        collisionEvent collide = super.move(g);
+       collisionEvent collide = super.move(g);
         if(collide != null) {
             collide.getEntity().visit(this, collide.getDirection());
         }
@@ -64,9 +69,8 @@ public class player extends entity {
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
-//        System.out.print("Drawing\n");
-//        canvas.setFill(Color.RED);
-//        canvas.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
-//        System.out.print(this.getX()+ " " + this.getY() +"\n");
+        //canvas.setFill(Color.RED);
+        //canvas.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
+
     }
 }
