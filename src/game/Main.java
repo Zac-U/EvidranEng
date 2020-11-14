@@ -8,12 +8,14 @@ import engine.core.tick;
 public class Main {
     public static tick.game main() {
         GameFactory maker = new GameFactory();
-        player p = new player(100, 100,50,50);
+        player p = new player(500, 500,50,50);
+        wall w = new wall(1000,10);
         Level l = new Level();
         l.addEntity(p);
         l.setLastDrawn(p);
         l.addKeyPressed(p);
         l.addKeyReleased(p);
+        l.addEntity(w);
         Stage st = new Stage("Stage_One");
 
         st.setLevel(l);

@@ -1,17 +1,27 @@
 package game;
 
+import engine.draw.image;
 import engine.entity.entity;
+import javafx.scene.canvas.GraphicsContext;
 
 public class wall extends entity {
 
-    public wall(int x, int y, int volx, int voly) {
-        super(x, y, volx, voly);
+    image picture = new image("file:src/game/Resources/Graphics/1080p/gph_wall.png");
+
+    public wall(int x, int y) {
+        super(x, y, 96, 446);
     }
 
     @Override
     public void tick(game g) {
         //set speed to standard speed
-        //move
+        this.setSpeedLeft(5);
+        this.move(g);
         //if collide
     }
+
+    public void draw(GraphicsContext canvas) {
+        picture.draw(canvas, this.getLocation());
+    }
+
 }
