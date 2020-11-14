@@ -6,6 +6,6 @@ import engine.physics.Collide;
 public class collisionEvent {
 
     entity e;
-    Collide c;
+    String direction;
 
 }

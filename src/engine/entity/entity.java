@@ -3,6 +3,7 @@ package engine.entity;
 import engine.core.tick;
 import engine.draw.drawable;
 import engine.draw.facade;
+import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import engine.physics.Moveable;
 import javafx.scene.canvas.Canvas;
@@ -46,5 +47,7 @@ public abstract class entity extends Moveable implements drawable, tick {
 
     public void keyReleased(windowEvent E) {}
 
-    protected
+    protected collisionEvent move(game game) {
+
+    }
 }
