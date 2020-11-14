@@ -10,7 +10,9 @@ public class GameFactory {
 
 
     public class Game implements tick.game {
-
+        //list of stages
+        //core game loop
+        //window
     }
 
 }
