@@ -26,6 +26,8 @@ public class Level implements drawable {
 
     private ArrayList<entity> keyReleased = new ArrayList<>();
 
+    private ArrayList<entity> backGround = new ArrayList<>();
+
 
     public void addEntity(entity e) {
         elements.add(e);
@@ -60,10 +62,10 @@ public class Level implements drawable {
 
     @Override
     public void draw(Canvas board) {
-        for (entity e: elements
-             ) {
-            e.draw(board);
-        }
+
+        for (entity e: backGround) {e.draw(board);}
+
+        for (entity e: elements) {e.draw(board);}
     }
 
     public void inputEvent(windowEvent wE) {
@@ -98,5 +100,13 @@ public class Level implements drawable {
 
     public Set<entity> getEntityList() {
         return (Set<entity>) elements;
+    }
+
+    public void addBackground(entity e) {
+        backGround.add(e);
+    }
+
+    public void removeBackground(entity e) {
+        backGround.remove(e);
     }
 }
