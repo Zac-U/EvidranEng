@@ -2,6 +2,7 @@ package game;
 
 import engine.aspect.Level;
 import engine.aspect.Stage;
+import engine.component.Direction;
 import engine.draw.image;
 import engine.entity.entity;
 import engine.event.collisionEvent;
@@ -34,21 +35,24 @@ public class Coin extends Collectible {
     }
 
     // adds value to the score and then gets destroyed
-    public void collect(player player) {
-        player.addScore(value);
-        collected = true;
-    }
+//    public void collect(player player) {
+//        player.addScore(value);
+//        collected = true;
+//    }
 
     //TODO: accept player and death wall
 
 
     @Override
-    public void accept(DeathBorder D, String direction) {
+    public void accept(DeathBorder D, Direction direction) {
         //destroy myself
+        collected = true;
     }
 
     @Override
-    public void accept(player p, String direction) {
+    public void accept(player p, Direction direction) {
         //get collected
+        p.accept(this, direction);
+        collected = true;
     }
 }

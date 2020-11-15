@@ -1,6 +1,7 @@
 package game;
 
 import engine.aspect.Level;
+import engine.component.Direction;
 import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
@@ -57,7 +58,6 @@ public class player extends entity {
         if(collide != null) {
             System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
-
         }
     }
 
@@ -87,23 +87,23 @@ public class player extends entity {
 
 
     @Override
-    public void accept(Boost b, String direction) {
+    public void accept(Boost b, Direction direction) {
         //boost player
     }
 
     @Override
-    public void accept(Coin c, String direction) {
+    public void accept(Coin c, Direction direction) {
         //add to player score
     }
 
     @Override
-    public void accept(DeathBorder D, String direction) {
+    public void accept(DeathBorder D, Direction direction) {
         //kill player
     }
 
     @Override
-    public void accept(wall w, String direction) {
-        if(direction.equals("LEFT")) {
+    public void accept(wall w, Direction direction) {
+        if(direction.equals(Direction.LEFT)) {
             pushBack();
         }
 

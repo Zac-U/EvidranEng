@@ -1,6 +1,7 @@
 package game;
 
 import engine.aspect.Level;
+import engine.component.Direction;
 import engine.component.Location;
 import engine.component.Volume;
 import engine.draw.image;
@@ -37,27 +38,23 @@ public class DeathBorder extends entity {
             int ypos;
             // randomly decides whether or not to generate a wall
             if (rand.nextInt(chanceOfWall) < 3) {
-
-                ypos = rand.nextInt(miny);
-                wall newWall = new wall(maxx, ypos, level.getSpeed());
-                level.addEntity(newWall);
-                level.addMid(newWall);
+                addWall(level, rand.nextInt(miny));
             }
             // randomly decides wither or not to place 2 walls
             else if (rand.nextInt(chanceOfWall) == 4){
-
-                ypos = rand.nextInt(miny);
-                wall wall1 = new wall(maxx, ypos , level.getSpeed());
-                level.addEntity(wall1);
-                level.addMid(wall1);
-                ypos = rand.nextInt(miny);
-                wall wall2 = new wall(maxx, ypos, level.getSpeed());
-                level.addEntity(wall2);
+                addWall(level, rand.nextInt(miny));
+                addWall(level, rand.nextInt(miny));
             }
             countdown = interval;
         } else {
             countdown--;
         }
+    }
+
+    private void addWall(Level level, int ypos) {
+        wall newWall = new wall(maxx, ypos, level.getSpeed());
+        level.addEntity(newWall);
+        level.addMid(newWall);
     }
 
     public void draw(GraphicsContext canvas) {
@@ -74,23 +71,27 @@ public class DeathBorder extends entity {
 
 
     @Override
-    public void accept(Boost b, String direction) {
+    public void accept(Boost b, Direction direction) {
         //destroy them
+        b.accept(this, direction);
     }
 
     @Override
-    public void accept(Coin c, String direction) {
+    public void accept(Coin c, Direction direction) {
         //destroy them
+        c.accept(this, direction);
     }
 
     @Override
-    public void accept(wall w, String direction) {
+    public void accept(wall w, Direction direction) {
         //destroy them
+        w.accept(this, direction);
     }
 
     @Override
-    public void accept(player p, String direction) {
+    public void accept(player p, Direction direction) {
         //destroy them
+        accept(p, direction);
     }
 }
 
