@@ -18,7 +18,10 @@ public class Main {
         l.addKeyPressed(p);
         l.addKeyReleased(p);
         l.addEntity(w);
+        l.addMid(w);
         l.addEntity(d);
+        l.addMid(d);
+        l.addEntity(bg);
         l.addBackground(bg);
         Stage st = new Stage("Stage_One");
 
