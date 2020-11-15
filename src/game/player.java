@@ -104,7 +104,20 @@ public class player extends entity {
     @Override
     public void accept(wall w, String direction) {
         if(direction.equals("LEFT")) {
-            this.addX(-this.coreSpeed.getSpeed());
+            pushBack();
         }
+
+    }
+
+    public void pushBack(){
+        this.addX(-this.coreSpeed.getSpeed());
+    }
+
+    public void pushUp(){
+        this.addY(-this.sideSpeed);
+    }
+
+    public void pushDown(){
+        this.addY(this.sideSpeed);
     }
 }

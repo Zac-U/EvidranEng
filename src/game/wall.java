@@ -63,7 +63,13 @@ public class wall extends entity {
     @Override
     public void accept(player p, String direction) {
         if(direction.equals("RIGHT")) {
-            //push player back
+            p.pushBack();
+        }
+        else if(direction.equals("UP")) {
+            p.pushDown();
+        }
+        else if(direction.equals("DOWN")) {
+            p.pushUp();
         }
         //also account for hitting player in other directions
     }
