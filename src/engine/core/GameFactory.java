@@ -91,6 +91,9 @@ public class GameFactory {
         public void draw(GraphicsContext board) {
             currentStage.draw(board);
         }
+
+        @Override
+        public void setGameSpeed(int speed) { currentStage.setGameSpeed(speed); }
     }
 
 

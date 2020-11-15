@@ -25,7 +25,8 @@ public interface tick {
         void draw(Canvas board);
         ArrayList<entity> getEntityList();
         Level getLevel();
-
+        // REVIEW:
+        void setGameSpeed(int speed);
     }
 
 }

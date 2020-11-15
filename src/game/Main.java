@@ -36,10 +36,12 @@ public class Main {
         Level lvlMenu = new Level();
         Stage stMenu = new Stage("Stage_Menu");
         //Create level entities
-        Button btnPlay = new Button(10, 10, 10, 10);
+        Button btnPlay = new Button(500, 500, 100, 100);
+        btnPlay.setText("Play");
+        btnPlay.setNextStage(stGame);
         //Add entities to level
         lvlMenu.addEntity(btnPlay);
-        lvlMenu.addMid(btnPlay);
+        lvlMenu.setLastDrawn(btnPlay);
         lvlMenu.addEntity(bg);
         lvlMenu.addBackground(bg);
 
