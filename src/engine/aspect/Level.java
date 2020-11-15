@@ -17,6 +17,8 @@ import java.util.Set;
 
 public class Level implements drawable{
 
+    speed coreSpeed;
+
     private ArrayList<entity> elements = new ArrayList<>();
 
     private entity lastDrawn;
@@ -126,6 +128,12 @@ public class Level implements drawable{
                 e.setSpeedLeft(speed * 5);
             }
         }
+    }
+
+    public class speed{
+        private int speed = 5;
+        public int getSpeed(){return speed;}
+        public void setSpeed(int speed){this.speed = speed;}
     }
 
 }
