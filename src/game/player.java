@@ -23,6 +23,9 @@ public class player extends entity {
     private boolean dead = false;
     private boolean push = false;
 
+    Random rand = new Random();
+    ArrayList<String> titles = new ArrayList<>();
+
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
 
     public void addScore(int i) {
@@ -33,6 +36,12 @@ public class player extends entity {
         super(x,y,72,83,s);
         this.setName("Player");
         this.dead = false;
+        titles.add("src/game/Resources/Sound/Coin_Collect_01.wav");
+        titles.add("src/game/Resources/Sound/Coin_Collect_02.wav");
+        titles.add("src/game/Resources/Sound/Coin_Collect_03.wav");
+        titles.add("src/game/Resources/Sound/Coin_Collect_04.wav");
+        titles.add("src/game/Resources/Sound/Coin_Collect_05.wav");
+        titles.add("src/game/Resources/Sound/Coin_Collect_06.wav");
     }
 
 
@@ -96,7 +105,7 @@ public class player extends entity {
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
         String scoreBoard = "Score: " + String.valueOf(score);
-        canvas.setFill(Paint.);
+        //canvas.setFill(Paint.WHITE);
         canvas.fillText(scoreBoard, 500, 500);
     }
 
@@ -107,7 +116,11 @@ public class player extends entity {
     }
 
     @Override
-    public void accept(Coin c, Direction direction) { //score += c.getValue();
+    public void accept(Coin c, Direction direction) {
+        score += c.getValue();
+        String temp = titles.get(rand.nextInt(6));
+        sound sond = new sound(temp, false);
+        sond.play();
          }
 
     @Override
