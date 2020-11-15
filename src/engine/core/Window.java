@@ -103,7 +103,7 @@ public class Window extends Application {
                 new EventHandler<WindowEvent>() {
                     @Override
                     public void handle(WindowEvent windowEvent) {
-                        Gam.getLevel().track.interrupt();
+                        Gam.getLevel().stopSound();
                     }
                 }
         );

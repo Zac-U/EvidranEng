@@ -140,4 +140,8 @@ public class Level implements drawable{
         public void setSpeed(int speed){this.speed = speed;}
     }
 
+    public void stopSound() {
+        if(track != null) {track.interrupt();}
+    }
+
 }

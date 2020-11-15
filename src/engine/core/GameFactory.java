@@ -55,6 +55,7 @@ public class GameFactory {
 
         @Override
         public void setCurrentStage(Stage s) {
+            currentStage.getLevel().stopSound();
             this.currentStage = s;
         }
 
