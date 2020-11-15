@@ -23,14 +23,12 @@ public abstract class Collectible extends entity {
 
     @Override
     public void tick(game g) {
-
-
-
         if (collected) {
             Stage stage = g.getCurrentStage();
             Level level = stage.getLevel();
             level.removeEntity(this);
         }
+        this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
     }
 
     @Override

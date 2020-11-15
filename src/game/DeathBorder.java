@@ -22,6 +22,7 @@ public class DeathBorder extends entity {
     final int interval = 60;
     final int miny = 350;
     final int maxx = 1920;
+    Random rand = new Random();
 
     DeathBorder(int x, int y, int volx, int voly, Level.speed s) {
         super(x,y,volx,voly, s);
@@ -31,24 +32,49 @@ public class DeathBorder extends entity {
 
     @Override
     public void tick(game g) {
+        Level level = g.getLevel();
+        generateWalls(level);
+        //generateCoins(level);
+        countdown--;
+        if (countdown < 0) {
+            countdown = interval;
+        }
+    }
+
+    private void generateCoins(Level level) {
+        // considers generating a new wall
+        if (countdown == interval / 2) {
+            // randomly decides whether or not to generate a wall
+            if (rand.nextInt(chanceOfWall) < 3) {
+                addCoin(level, rand.nextInt(miny));
+            }
+            // randomly decides wither or not to place 2 walls
+            else if (rand.nextInt(chanceOfWall) == 4) {
+                addCoin(level, rand.nextInt(miny));
+                addCoin(level, rand.nextInt(miny));
+            }
+        }
+    }
+
+    private void generateWalls(Level level) {
         // considers generating a new wall
         if (countdown == 0) {
-            Random rand = new Random();
-            Level level = g.getLevel();
-            int ypos;
             // randomly decides whether or not to generate a wall
             if (rand.nextInt(chanceOfWall) < 3) {
                 addWall(level, rand.nextInt(miny));
             }
             // randomly decides wither or not to place 2 walls
-            else if (rand.nextInt(chanceOfWall) == 4){
+            else if (rand.nextInt(chanceOfWall) == 4) {
                 addWall(level, rand.nextInt(miny));
                 addWall(level, rand.nextInt(miny));
             }
-            countdown = interval;
-        } else {
-            countdown--;
         }
+    }
+
+    private void addCoin(Level level, int ypos) {
+        Coin newCoin = new Coin(maxx, ypos, 29,30, level.getSpeed());
+        level.addEntity(newCoin);
+        level.addMid(newCoin);
     }
 
     private void addWall(Level level, int ypos) {
