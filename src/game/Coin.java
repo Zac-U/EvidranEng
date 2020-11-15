@@ -7,6 +7,7 @@ import engine.draw.image;
 import engine.entity.entity;
 import engine.event.collisionEvent;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Coin extends Collectible {
@@ -26,8 +27,10 @@ public class Coin extends Collectible {
     @Override
     public void tick(game g) {
         super.tick(g);
-        collisionEvent E = this.move(g);
-        E.getEntity().accept(this,E.getDirection());
+        ArrayList<collisionEvent> collide = this.move(g);
+        for (collisionEvent c: collide) {
+            c.getEntity().accept(this,c.getDirection());
+        }
 
 
     }

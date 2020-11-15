@@ -11,6 +11,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import game.*;
 
+import java.util.ArrayList;
+
 /***
  * a moveable object with a facade
  *
@@ -49,7 +51,7 @@ public abstract class entity extends Moveable implements drawable, tick {
 
     public void keyReleased(windowEvent E) {}
 
-    protected collisionEvent move(game game) {
+    protected ArrayList<collisionEvent> move(game game) {
        return super.move(game.getEntityList());
     }
 

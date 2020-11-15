@@ -8,6 +8,8 @@ import engine.entity.entity;
 import engine.event.collisionEvent;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.util.ArrayList;
+
 public class wall extends entity {
 
     private boolean dead;
@@ -23,8 +25,9 @@ public class wall extends entity {
     public void tick(game g) {
         if (dead) { kill(g); }
         this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
-        collisionEvent collide = this.move(g);
-        if (collide != null) {
+        ArrayList<collisionEvent> collide = this.move(g);
+        for (collisionEvent c: collide) {
+            c.getEntity().accept(this,c.getDirection());
         }
         if (this.getX() < (-this.getVolX())) {
             kill(g);
@@ -45,14 +48,13 @@ public class wall extends entity {
 
     @Override
     public void accept(player p, Direction direction) {
-        System.out.print("Wall hit player from: "+direction+ "\n");
-        if(direction.equals(Direction.LEFT)) {
-            p.pushBack();
-        } else if (direction.equals(Direction.UP)) {
+        System.out.print("Player hit wall from: "+direction+ "\n");
+        //if(direction.equals(Direction.RIGHT)) {
+            //p.pushBack();
+        if (direction.equals(Direction.UP)) {
             p.pushDown();
         } else if (direction.equals(Direction.DOWN)) {
             p.pushUp();
         }
-        //p.accept(this, Direction.opposite(direction));
     }
 }

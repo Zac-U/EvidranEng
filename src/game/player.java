@@ -11,6 +11,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+
 public class player extends entity {
 
     int sideSpeed = 15;
@@ -18,6 +20,7 @@ public class player extends entity {
 
     int score = 0;
     private boolean dead;
+    private boolean push = false;
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
 
@@ -56,11 +59,13 @@ public class player extends entity {
     @Override
     public void tick(game g) {
         boundY();
-       collisionEvent collide = this.move(g);
-        if(collide != null) {
-            //System.out.print("collision\n");
-            collide.getEntity().accept(this, collide.getDirection());
+
+       ArrayList<collisionEvent> collide = this.move(g);
+        for (collisionEvent c: collide) {
+            c.getEntity().accept(this,c.getDirection());
         }
+
+        if(push) {this.setSpeedLeft(0);}
         if (dead) { kill(g); }
     }
 
@@ -80,6 +85,7 @@ public class player extends entity {
     }
 
 
+
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
     }
@@ -95,21 +101,24 @@ public class player extends entity {
          }
 
     @Override
-    public void accept(DeathBorder D, Direction direction) { dead = true; }
+    public void accept(DeathBorder D, Direction direction) {dead = true;}
 
     @Override
     public void accept(wall w, Direction direction) {
+        System.out.print("wall hit player from "+direction+"\n");
         if(direction.equals(Direction.LEFT)) {
             pushBack();
-        } else if (direction.equals(Direction.UP)) {
-            pushDown();
-        } else if (direction.equals(Direction.DOWN)) {
-            pushUp();
+        //} else if (direction.equals(Direction.UP)) {
+            //pushDown();
+        //} else if (direction.equals(Direction.DOWN)) {
+           // pushUp();
         }
     }
 
     public void pushBack(){
-        this.takeX(this.coreSpeed.getSpeed());
+        this.setSpeedLeft(this.coreSpeed.getSpeed());
+        push = true;
+
     }
 
     public void pushUp(){this.takeY(this.sideSpeed);}

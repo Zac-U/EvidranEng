@@ -6,6 +6,8 @@ import engine.component.Direction;
 import engine.entity.entity;
 import engine.event.collisionEvent;
 
+import java.util.ArrayList;
+
 public class Boost extends Collectible {
 
     private int speedUp;
@@ -21,8 +23,10 @@ public class Boost extends Collectible {
     public void tick(game g) {
         this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
 
-        collisionEvent E = this.move(g);
-        E.getEntity().accept(this,E.getDirection());
+        ArrayList<collisionEvent> collide = this.move(g);
+        for (collisionEvent c: collide) {
+            c.getEntity().accept(this,c.getDirection());
+        }
 
         if (collected) {
             kill(g);
