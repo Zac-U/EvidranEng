@@ -21,6 +21,8 @@ public class GameFactory {
 
     Game game = new Game();
 
+
+
     public GameFactory(){}
 
     public void addStage(Stage s) {
@@ -107,10 +109,6 @@ public class GameFactory {
                     continue;
                 }
             }
-        }
-    }
-        public void setGameSpeed(int speed) {
-            currentStage.setGameSpeed(speed);
         }
 
         public void kill(entity e) {

@@ -70,7 +70,6 @@ public class player extends entity {
     }
 
     //TODO: end the game
-    @Override
     protected void kill(game g) {
         sound sond = new sound("src/game/Resources/Sound/DeathSoundSynth.wav", false);
         sond.play();
