@@ -14,6 +14,7 @@ public class player extends entity {
 
     int sideSpeed = 15;
 
+
     int score = 0;
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
@@ -56,7 +57,6 @@ public class player extends entity {
         if(collide != null) {
             System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
-
         }
     }
 
@@ -103,7 +103,20 @@ public class player extends entity {
     @Override
     public void accept(wall w, String direction) {
         if(direction.equals("LEFT")) {
-            this.addX(-Main.getSpeed());
+            pushBack();
         }
+
+    }
+
+    public void pushBack(){
+        this.addX(-this.coreSpeed.getSpeed());
+    }
+
+    public void pushUp(){
+        this.addY(-this.sideSpeed);
+    }
+
+    public void pushDown(){
+        this.addY(this.sideSpeed);
     }
 }

@@ -78,9 +78,7 @@ public class Level implements drawable{
 
     public void inputEvent(windowEvent wE) {
         if(wE.getEvent().equals("MOUSECLICKED")) {
-            for (entity i : mouseClicked
-                 ) {
-                i.mouseClick(wE);
+            for (entity i : mouseClicked) {i.mouseClick(wE);
             }
         }
         else if(wE.getEvent().equals("KEYPRESSED")) {

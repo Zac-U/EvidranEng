@@ -16,12 +16,13 @@ public class wall extends entity {
     public wall(int x, int y, Level.speed s) {
         super(x, y, 96, 446, s);
         this.setName("Wall");
-        this.setSpeedLeft(Main.getSpeed());
+
     }
 
     @Override
     public void tick(game g) {
         if(remove){this.removeWall(g);}
+        this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
         collisionEvent collide = this.move(g);
         if (collide != null) {
         }
@@ -62,7 +63,13 @@ public class wall extends entity {
     @Override
     public void accept(player p, String direction) {
         if(direction.equals("RIGHT")) {
-            //push player back
+            p.pushBack();
+        }
+        else if(direction.equals("UP")) {
+            p.pushDown();
+        }
+        else if(direction.equals("DOWN")) {
+            p.pushUp();
         }
         //also account for hitting player in other directions
     }

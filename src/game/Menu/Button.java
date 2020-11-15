@@ -13,7 +13,6 @@ public class Button extends entity {
 
     String text;
     Stage nextStage;
-    image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
     boolean clicked = false;
 
     public Button(int x, int y, int volx, int voly, Level.speed s) {
@@ -37,20 +36,20 @@ public class Button extends entity {
     }
 
     @Override
+    public void keyReleased(windowEvent E) {
+        /*if(E.getKey().equals("e")) {
+
+
+        }*/
+        clicked = true;
+    }
+
+    @Override
     public void mouseClick(windowEvent E) {
         clicked = true;
         super.addX(30);
         System.out.print("YES");
     }
-
-    public void draw(GraphicsContext canvas) {
-        //picture.draw(canvas, super.getLocation());
-        picture.draw(canvas, super.getLocation());
-        Text t = new Text();
-        t.setText(text);
-    }
-
-
 
 
 }
