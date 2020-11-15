@@ -20,7 +20,7 @@ public class Coin extends Collectible {
         this.setName("Coin");
     }
 
-    public int getValue(){return value;}
+    public int getValue(){ return value; }
 
     @Override
     public void tick(game g) {
@@ -29,8 +29,6 @@ public class Coin extends Collectible {
         E.getEntity().accept(this,E.getDirection());
         if (dead) { kill(g); }
     }
-
-    public int getValue() { return this.value; }
 
     @Override
     public void accept(DeathBorder D, Direction direction) { dead = true; }

@@ -29,5 +29,7 @@ public class wall extends entity {
     public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
-    public void accept(player p, Direction direction) { p.accept(this, Direction.opposite(direction)); }
+    public void accept(player p, Direction direction) {
+        System.out.println("in wall");
+        p.accept(this, Direction.opposite(direction)); }
 }

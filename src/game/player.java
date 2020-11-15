@@ -89,6 +89,7 @@ public class player extends entity {
 
     @Override
     public void accept(wall w, Direction direction) {
+        System.out.println("here");
         if(direction.equals(Direction.LEFT)) {
             pushBack();
         } else if (direction.equals(Direction.UP)) {
