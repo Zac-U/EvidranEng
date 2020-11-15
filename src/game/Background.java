@@ -51,7 +51,7 @@ public class Background extends entity{
         //new image("file:src/game/Resources/Graphics/1080p/gph_circuit_6.png").draw(canvas, new Location(0, 0));
         System.out.println(this.getLocation().getX());
         tiles.get(currentTiles[0]).draw(canvas, this.getLocation());
-        tiles.get(currentTiles[1]).draw(canvas, this.getLocation());
+        tiles.get(currentTiles[1]).draw(canvas, this.getLocation().add(new Location(1920, 0)));
 
     }
 }

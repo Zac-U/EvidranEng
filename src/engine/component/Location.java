@@ -53,7 +53,7 @@ public class Location {
         this.y = this.y + V;
     }
 
-    protected Location addLocation(Location l) {return new Location(this.x + l.x, this.y + l.y);}
+    public Location add(Location l) {return new Location(this.x + l.x, this.y + l.y);}
 
     //function checks if a given x  value is greater than the held x value
     protected boolean greaterX(int x) {
