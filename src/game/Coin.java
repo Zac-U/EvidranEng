@@ -13,6 +13,7 @@ import java.util.Random;
 public class Coin extends Collectible {
 
     private int value;
+    private boolean collected;
 
     public Coin(int x, int y, int volx, int voly, Level.speed s) {
         super(x, y, volx, voly, "file:src/game/Resources/Graphics/1080p/gph_coin.png", s);
