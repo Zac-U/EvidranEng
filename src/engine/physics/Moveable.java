@@ -47,8 +47,9 @@ public class Moveable extends Collide {
         return null;
     }
 
-    public collisionEvent move(ArrayList<entity> elements) {
+    public ArrayList<collisionEvent> move(ArrayList<entity> elements) {
            //for every direction this object tries to move
+        ArrayList<collisionEvent> returner = new ArrayList<>();
         for (int i = 0; i < speed.length ; i++) {
             if(speed[i] != 0) {
                 //this.saveMomento();//save a momento
@@ -56,16 +57,22 @@ public class Moveable extends Collide {
 
                 for (entity ent : elements) { //go over every other object
                     if((this.collider && ent.collider) && !(this.getName().equals(ent.getName()))) {//if you and they are collideable
-                        if (ent.collidesWith(this)) {//check if you collide
-                            //System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
-                            return createEvent(ent, i);//return event with it in
+                        if(i == 0 || i == 2) {
+                            if(ent.collidesWithEx(this)) {
+                                returner.add(createEvent(ent, i));
+                            }
+                        }else {
+                            if (ent.collidesWith(this)) {//check if you collide
+                                //System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
+                                returner.add(createEvent(ent, i));//return event with it in
+                            }
                         }
                     }
                 }
             }
 
         }
-        return null;
+        return returner;
     }
 
     public Moveable clone() {

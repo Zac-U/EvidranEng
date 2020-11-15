@@ -7,6 +7,7 @@ import engine.draw.image;
 import engine.entity.entity;
 import engine.event.collisionEvent;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Coin extends Collectible {
@@ -18,6 +19,7 @@ public class Coin extends Collectible {
         Random rand = new Random();
         value = (1 + rand.nextInt(3)) * 10;
         this.setName("Coin");
+
     }
 
     public int getValue(){ return value; }
@@ -25,11 +27,22 @@ public class Coin extends Collectible {
     @Override
     public void tick(game g) {
         super.tick(g);
-        collisionEvent E = this.move(g);
-        System.out.println("\n\nname: " + E.getEntity().getName());
-        E.getEntity().accept(this, E.getDirection());
-        if (dead) { g.kill(this); }
+        ArrayList<collisionEvent> collide = this.move(g);
+        for (collisionEvent c: collide) {
+            c.getEntity().accept(this,c.getDirection());
+        }
+
+
     }
+
+    // adds value to the score and then gets destroyed
+//    public void collect(player player) {
+//        player.addScore(value);
+//        collected = true;
+//    }
+
+    //TODO: accept player and death wall
+
 
     @Override
     public void accept(DeathBorder D, Direction direction) { dead = true; }
@@ -38,5 +51,6 @@ public class Coin extends Collectible {
     public void accept(player p, Direction direction) {
         dead = true;
         p.accept(this, direction);
+        collected = true;
     }
 }
