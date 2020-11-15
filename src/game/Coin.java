@@ -12,8 +12,8 @@ public class Coin extends Collectible {
 
     int value;
 
-    public Coin(entity e, int x, int y, int volx, int voly) {
-        super(x, y, volx, voly, "file:src/game/Resources.Graphics.1080p/gph_coin.png");
+    public Coin(entity e, int x, int y, int volx, int voly, Level.speed s) {
+        super(x, y, volx, voly, "file:src/game/Resources.Graphics.1080p/gph_coin.png", s);
         Random rand = new Random();
         value = (1 + rand.nextInt(3)) * 10;
         this.setName("Coin");

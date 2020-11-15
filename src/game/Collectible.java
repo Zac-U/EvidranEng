@@ -15,8 +15,8 @@ public abstract class Collectible extends entity {
     boolean collected;
     image myImage;
 
-    public Collectible(int x, int y, int volx, int voly, String path) {
-        super(x,y,volx,voly);
+    public Collectible(int x, int y, int volx, int voly, String path, Level.speed s) {
+        super(x,y,volx,voly,s);
         collected = false;
         myImage = new image(path);
     }

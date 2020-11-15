@@ -9,8 +9,8 @@ public class Boost extends Collectible {
 
     int speedUp;
 
-    public Boost(entity e, int x, int y, int volx, int voly) {
-        super(x, y, volx, voly, "file:src/game/Resources.Graphics.4k/gph_coin.png");
+    public Boost(entity e, int x, int y, int volx, int voly, Level.speed s) {
+        super(x, y, volx, voly, "file:src/game/Resources.Graphics.4k/gph_coin.png", s);
         speedUp = 10;
         this.setName("Boost");
         this.setSpeedLeft(Main.getSpeed());

@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class Level implements drawable{
 
-    speed coreSpeed;
+    speed coreSpeed = new speed();
 
     private ArrayList<entity> elements = new ArrayList<>();
 
@@ -64,6 +64,7 @@ public class Level implements drawable{
         keyReleased.remove(e);
     }
 
+    public speed getSpeed() {return this.coreSpeed;}
 
     @Override
     public void draw(GraphicsContext board) {

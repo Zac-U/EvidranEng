@@ -1,5 +1,6 @@
 package game;
 
+import engine.aspect.Level;
 import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
@@ -21,8 +22,8 @@ public class player extends entity {
         score += i;
     }
 
-    public player(int x, int y) {
-        super(x,y,72,83);
+    public player(int x, int y, Level.speed s) {
+        super(x,y,72,83,s);
         this.setName("Player");
     }
 
