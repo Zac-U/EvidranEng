@@ -10,67 +10,40 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class wall extends entity {
 
-    boolean remove = false;
-
+    private boolean dead;
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_wall.png");
 
     public wall(int x, int y, Level.speed s) {
         super(x, y, 96, 446, s);
         this.setName("Wall");
-
+        this.dead = false;
     }
 
     @Override
     public void tick(game g) {
-        if(remove){this.removeWall(g);}
+        if (dead) { kill(g); }
         this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
         collisionEvent collide = this.move(g);
+        //TODO: review if the following is necessary
         if (collide != null) {
         }
         if (this.getX() < (-this.getVolX())) {
-            removeWall(g);
+            kill(g);
         }
     }
 
-    public void removeWall() {remove = true;}
-
-    public void removeWall(game g) {
+    public void kill(game g) {
         Stage stage = g.getCurrentStage();
         Level level = stage.getLevel();
         level.removeEntity(this);
         level.removeMid(this);
     }
 
-    public void draw(GraphicsContext canvas) {
-        picture.draw(canvas, this.getLocation());
-    }
-
-    public void accept(player p) {
-        System.out.print("wall accepts player\n");
-    }
-
-    public void accept(DeathBorder d){
-        System.out.print("Death wall meets wall\n");
-    }
-
-    //TODO: accept player, deathwall
-
+    public void draw(GraphicsContext canvas) { picture.draw(canvas, this.getLocation()); }
 
     @Override
-    public void accept(DeathBorder D, Direction direction) {
-        //destroy myself
-    }
+    public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
-    public void accept(player p, Direction direction) {
-        if(direction.equals("RIGHT")) {
-            p.pushBack();
-        }
-        else if(direction.equals("UP")) {
-            p.pushDown();
-        }
-        else if(direction.equals("DOWN")) {
-            p.pushUp();
-        }
-    }
+    public void accept(player p, Direction direction) { p.accept(this, Direction.opposite(direction)); }
 }
