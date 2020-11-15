@@ -17,6 +17,8 @@ import javafx.scene.canvas.*;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Window extends Application {
 
 
@@ -36,6 +38,8 @@ public class Window extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        ReentrantLock mutex = new ReentrantLock();
+
         tick.game Gam = game.Main.main();
 
         primaryStage.setTitle("Evidran");
@@ -51,7 +55,13 @@ public class Window extends Application {
                     public void handle(KeyEvent e)
                     {
                         String code = e.getCode().toString();
-                        Gam.passInputEvent(getEvent("KEYPRESSED", code));//game called here
+                        try {
+                            mutex.lock();
+                        Gam.passInputEvent(getEvent("KEYPRESSED", code));
+                        } finally {
+                            mutex.unlock();
+                        }
+
                     }
                 });
 
@@ -63,7 +73,12 @@ public class Window extends Application {
                        int tempY = (int) mouseEvent.getY();
                        System.out.print("\t"+tempX+" "+ tempY+"\n");
                        Location temp = new Location(tempX, tempY);
-                        Gam.passInputEvent(getEvent("MOUSEPRESSED", temp));//game called here
+                        try {
+                            mutex.lock();
+                        Gam.passInputEvent(getEvent("MOUSEPRESSED", temp));
+                        } finally {
+                            mutex.unlock();
+                        }
                     }
                 }
         );
@@ -73,7 +88,12 @@ public class Window extends Application {
                     @Override
                     public void handle(KeyEvent keyEvent) {
                         String code = keyEvent.getCode().toString();
-                        Gam.passInputEvent(getEvent("KEYRELEASED", code));//game called here
+                        try {
+                            mutex.lock();
+                        Gam.passInputEvent(getEvent("KEYRELEASED", code));
+                        } finally {
+                            mutex.unlock();
+                        }
                     }
                 }
         );
@@ -91,13 +111,18 @@ public class Window extends Application {
                 GraphicsContext temp = board.getGraphicsContext2D();
                 temp.setFill(Color.BLACK);
                 temp.fillRect(0,0,1920,1080);
-                Gam.draw(temp);
+                try {
+                    mutex.lock();
+                      Gam.draw(temp);
 
-                long secsElapsed = (System.currentTimeMillis() - startTime) / 1000;
-                int newSpeed = Math.floorDiv((int) (secsElapsed), 10) + 1;
-                if (newSpeed != gameSpeed) {
+                     long secsElapsed = (System.currentTimeMillis() - startTime) / 1000;
+                      int newSpeed = Math.floorDiv((int) (secsElapsed), 10) + 1;
+                      if (newSpeed != gameSpeed) {
                     gameSpeed = newSpeed;
-                    Gam.setGameSpeed(gameSpeed);//game called here
+                    Gam.setGameSpeed(gameSpeed);
+                     }
+                } finally {
+                    mutex.unlock();
                 }
 
                 if((count % 2) == 0) {Gam.update();}
@@ -111,3 +136,9 @@ public class Window extends Application {
 
 
 }
+
+
+
+
+
+
