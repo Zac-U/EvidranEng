@@ -5,6 +5,7 @@ import engine.aspect.Stage;
 import engine.core.GameFactory;
 import engine.core.tick;
 import game.Menu.Button;
+import game.Menu.SimpleGraphic;
 
 public class Main {
     public static tick.game main() {
@@ -39,11 +40,14 @@ public class Main {
         Button btnPlay = new Button(500, 500, 100, 100);
         btnPlay.setText("Play");
         btnPlay.setNextStage(stGame);
+        SimpleGraphic title = new SimpleGraphic(0, 0, 1920, 1080, "file:src/game/Resources/Graphics/1080p/gph_titleScreen.png");
         //Add entities to level
         lvlMenu.addEntity(btnPlay);
         lvlMenu.setLastDrawn(btnPlay);
         lvlMenu.addEntity(bg);
         lvlMenu.addBackground(bg);
+        lvlMenu.addEntity(title);
+        lvlMenu.addMid(title);
 
         stMenu.setLevel(lvlMenu);
 
