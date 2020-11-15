@@ -12,7 +12,7 @@ public class Main {
 
         //Make game stage/level
         Level lvlGame = new Level();
-        Stage st = new Stage("Stage_One");
+        Stage stGame = new Stage("Stage_One");
         //Create level entities
         player p = new player(500, 500);
         wall w = new wall(1000,10);
@@ -30,7 +30,7 @@ public class Main {
         lvlGame.addEntity(bg);
         lvlGame.addBackground(bg);
 
-        st.setLevel(lvlGame);
+        stGame.setLevel(lvlGame);
 
         //Make Main menu stage/level
         Level lvlMenu = new Level();
@@ -47,9 +47,9 @@ public class Main {
 
         //Add stages/levels to Game
         maker.addStage(stMenu);
-        maker.addStage(st);
+        maker.addStage(stGame);
 
-        maker.setStartStage(st);
+        maker.setStartStage(stMenu);
 
         return maker.create();
 
