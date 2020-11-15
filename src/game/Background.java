@@ -35,7 +35,7 @@ public class Background extends entity{
 
     @Override
     public void tick(game g) {
-        this.setSpeedLeft(5);
+        this.setSpeedLeft(2);
         this.move(g);
 
         if (this.getX() + this.getVolX() < 0) {
@@ -48,7 +48,6 @@ public class Background extends entity{
     public void draw(GraphicsContext canvas) {
         tiles.get(currentTiles[0]).draw(canvas, this.getLocation());
         tiles.get(currentTiles[1]).draw(canvas, this.getLocation().add(new Location(1920, 0)));
-
     }
 
     public void accept(Visitor visitor) {
