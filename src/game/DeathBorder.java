@@ -59,7 +59,7 @@ public class DeathBorder extends entity {
 
     public void draw(GraphicsContext canvas) {
         //picture.draw(canvas, super.getLocation());
-        picture.draw(canvas, new Location(0, 0));
+        picture.draw(canvas, this.getLocation());
     }
 }
 
