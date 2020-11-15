@@ -92,7 +92,8 @@ public class player extends entity {
     }
 
     @Override
-    public void accept(Coin c, Direction direction) { score += c.getValue(); }
+    public void accept(Coin c, Direction direction) { //score += c.getValue();
+         }
 
     @Override
     public void accept(DeathBorder D, Direction direction) { dead = true; }
