@@ -48,13 +48,14 @@ public class wall extends entity {
 
     @Override
     public void accept(player p, Direction direction) {
-        System.out.print("Player hit wall from: "+direction+ "\n");
-        //if(direction.equals(Direction.RIGHT)) {
-            //p.pushBack();
-        if (direction.equals(Direction.UP)) {
+        System.out.print("Wall hit player from: "+direction+ "\n");
+        if(direction.equals(Direction.LEFT)) {
+            p.pushBack();
+        } else if (direction.equals(Direction.UP)) {
             p.pushDown();
         } else if (direction.equals(Direction.DOWN)) {
             p.pushUp();
         }
+        //p.accept(this, Direction.opposite(direction));
     }
 }

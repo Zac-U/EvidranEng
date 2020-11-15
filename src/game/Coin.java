@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class Coin extends Collectible {
 
-    int value;
+    private int value;
 
     public Coin(int x, int y, int volx, int voly, Level.speed s) {
         super(x, y, volx, voly, "file:src/game/Resources/Graphics/1080p/gph_coin.png", s);
@@ -22,7 +22,7 @@ public class Coin extends Collectible {
 
     }
 
-    public int getValue(){return value;}
+    public int getValue(){ return value; }
 
     @Override
     public void tick(game g) {
@@ -45,14 +45,11 @@ public class Coin extends Collectible {
 
 
     @Override
-    public void accept(DeathBorder D, Direction direction) {
-        //destroy myself
-        collected = true;
-    }
+    public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
     public void accept(player p, Direction direction) {
-        //get collected
+        dead = true;
         p.accept(this, direction);
         collected = true;
     }

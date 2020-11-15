@@ -16,8 +16,6 @@ import java.util.ArrayList;
 public class player extends entity {
 
     int sideSpeed = 15;
-
-
     int score = 0;
     private boolean dead;
     private boolean push = false;
@@ -31,7 +29,6 @@ public class player extends entity {
     public player(int x, int y, Level.speed s) {
         super(x,y,72,83,s);
         this.setName("Player");
-        this.dead = false;
     }
 
     //set side speed according to key
@@ -70,7 +67,8 @@ public class player extends entity {
     }
 
     //TODO: end the game
-    private void kill(game g) {}
+    @Override
+    protected void kill(game g) {}
 
     private void boundY() {
         int boundingDistance = 6;
@@ -83,7 +81,6 @@ public class player extends entity {
             this.setSpeedDown(0);
         }
     }
-
 
 
     public void draw(GraphicsContext canvas) {
@@ -101,24 +98,21 @@ public class player extends entity {
          }
 
     @Override
-    public void accept(DeathBorder D, Direction direction) {dead = true;}
+    public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
     public void accept(wall w, Direction direction) {
-        System.out.print("wall hit player from "+direction+"\n");
         if(direction.equals(Direction.LEFT)) {
             pushBack();
-        //} else if (direction.equals(Direction.UP)) {
-            //pushDown();
-        //} else if (direction.equals(Direction.DOWN)) {
-           // pushUp();
+        } else if (direction.equals(Direction.UP)) {
+            pushDown();
+        } else if (direction.equals(Direction.DOWN)) {
+            pushUp();
         }
     }
 
     public void pushBack(){
-        this.setSpeedLeft(this.coreSpeed.getSpeed());
-        push = true;
-
+        this.takeX(this.coreSpeed.getSpeed());
     }
 
     public void pushUp(){this.takeY(this.sideSpeed);}

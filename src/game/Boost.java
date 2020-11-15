@@ -28,25 +28,17 @@ public class Boost extends Collectible {
             c.getEntity().accept(this,c.getDirection());
         }
 
-        if (collected) {
-            kill(g);
-        }
-    }
-
-    private void kill(game g) {
-        Stage stage = g.getCurrentStage();
-        Level level = stage.getLevel();
-        level.removeEntity(this);
-        level.removeMid(this);
+        if (dead) { kill(g); }
     }
 
     public int getSpeedUp() { return this.speedUp; }
 
-    //TODO: accept player and deathwall
+    @Override
+    public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
-    public void accept(DeathBorder D, Direction direction) { collected = true; }
-
-    @Override
-    public void accept(player p, Direction direction) { p.accept(this, Direction.opposite(direction)); }
+    public void accept(player p, Direction direction) {
+        dead = true;
+        p.accept(this, Direction.opposite(direction));
+    }
 }
