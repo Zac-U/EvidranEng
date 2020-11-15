@@ -5,6 +5,7 @@ import engine.aspect.Stage;
 import engine.component.Location;
 import engine.draw.image;
 import engine.entity.entity;
+import engine.event.collisionEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -22,6 +23,9 @@ public abstract class Collectible extends entity {
 
     @Override
     public void tick(game g) {
+
+
+
         if (collected) {
             Stage stage = g.getCurrentStage();
             Level level = stage.getLevel();

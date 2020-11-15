@@ -51,5 +51,19 @@ public class wall extends entity {
         System.out.print("Death wall meets wall\n");
     }
 
+    //TODO: accept player, deathwall
 
+
+    @Override
+    public void accept(DeathBorder D, String direction) {
+        //destroy myself
+    }
+
+    @Override
+    public void accept(player p, String direction) {
+        if(direction.equals("RIGHT")) {
+            //push player back
+        }
+        //also account for hitting player in other directions
+    }
 }

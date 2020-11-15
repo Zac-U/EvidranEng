@@ -70,7 +70,28 @@ public class DeathBorder extends entity {
         //w.removeWall();
     }
 
+    //TODO: accept wall, coin, boost and player. destroy all of them
 
+
+    @Override
+    public void accept(Boost b, String direction) {
+        //destroy them
+    }
+
+    @Override
+    public void accept(Coin c, String direction) {
+        //destroy them
+    }
+
+    @Override
+    public void accept(wall w, String direction) {
+        //destroy them
+    }
+
+    @Override
+    public void accept(player p, String direction) {
+        //destroy them
+    }
 }
 
 

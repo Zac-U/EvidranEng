@@ -53,7 +53,7 @@ public class player extends entity {
        collisionEvent collide = this.move(g);
         if(collide != null) {
             System.out.print("collision\n");
-            collide.getEntity().visit(this, collide.getDirection());
+            collide.getEntity().accept(this, collide.getDirection());
 
         }
 
@@ -68,7 +68,28 @@ public class player extends entity {
         System.out.print("player accepts wall\n");
     }
 
+    //TODO: accept deathwall, wall, coin and boost
 
 
+    @Override
+    public void accept(Boost b, String direction) {
+        //boost player
+    }
 
+    @Override
+    public void accept(Coin c, String direction) {
+        //add to player score
+    }
+
+    @Override
+    public void accept(DeathBorder D, String direction) {
+        //kill player
+    }
+
+    @Override
+    public void accept(wall w, String direction) {
+        if(direction.equals("LEFT")) {
+            //push player back
+        }
+    }
 }

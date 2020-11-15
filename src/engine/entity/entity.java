@@ -50,14 +50,14 @@ public abstract class entity extends Moveable implements drawable, tick {
        return super.move(game.getEntityList());
     }
 
-    void accept(Boost b, String direction){}
+    public void accept(Boost b, String direction){}
 
-    void accept(Coin c, String direction){}
+    public void accept(Coin c, String direction){}
 
-    void accept(DeathBorder D, String direction){}
+    public void accept(DeathBorder D, String direction){}
 
-    void accept(wall w, String direction){}
+    public void accept(wall w, String direction){}
 
-    void accept(player p, String direction){}
+    public void accept(player p, String direction){}
 
 }

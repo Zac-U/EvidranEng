@@ -1,6 +1,9 @@
 package game;
 
+import engine.aspect.Level;
+import engine.aspect.Stage;
 import engine.entity.entity;
+import engine.event.collisionEvent;
 
 public class Boost extends Collectible {
 
@@ -12,6 +15,19 @@ public class Boost extends Collectible {
         this.setName("Boost");
     }
 
+    @Override
+    public void tick(game g) {
+
+        collisionEvent E = this.move(g);
+        E.getEntity().accept(this,E.getDirection());
+
+        if (collected) {
+            Stage stage = g.getCurrentStage();
+            Level level = stage.getLevel();
+            level.removeEntity(this);
+        }
+    }
+
     // increase player's speed and then gets destroyed
     public void collect(player player) {
         int newSpeed = player.getSpeedRight() + speedUp;
@@ -19,4 +35,16 @@ public class Boost extends Collectible {
         collected = true;
     }
 
+    //TODO: accept player and deathwall
+
+
+    @Override
+    public void accept(DeathBorder D, String direction) {
+        //kill myself
+    }
+
+    @Override
+    public void accept(player p, String direction) {
+        //boost player
+    }
 }
