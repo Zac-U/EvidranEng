@@ -37,27 +37,23 @@ public class DeathBorder extends entity {
             int ypos;
             // randomly decides whether or not to generate a wall
             if (rand.nextInt(chanceOfWall) < 3) {
-
-                ypos = rand.nextInt(miny);
-                wall newWall = new wall(maxx, ypos, level.getSpeed());
-                level.addEntity(newWall);
-                level.addMid(newWall);
+                addWall(level, rand.nextInt(miny));
             }
             // randomly decides wither or not to place 2 walls
             else if (rand.nextInt(chanceOfWall) == 4){
-
-                ypos = rand.nextInt(miny);
-                wall wall1 = new wall(maxx, ypos , level.getSpeed());
-                level.addEntity(wall1);
-                level.addMid(wall1);
-                ypos = rand.nextInt(miny);
-                wall wall2 = new wall(maxx, ypos, level.getSpeed());
-                level.addEntity(wall2);
+                addWall(level, rand.nextInt(miny));
+                addWall(level, rand.nextInt(miny));
             }
             countdown = interval;
         } else {
             countdown--;
         }
+    }
+
+    private void addWall(Level level, int ypos) {
+        wall newWall = new wall(maxx, ypos, level.getSpeed());
+        level.addEntity(newWall);
+        level.addMid(newWall);
     }
 
     public void draw(GraphicsContext canvas) {
