@@ -53,5 +53,5 @@ public class sound extends Thread{
         clip.close();
     }
 
-    public void done(){}
+
 }
