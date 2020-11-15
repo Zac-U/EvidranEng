@@ -28,6 +28,7 @@ public class wall extends entity {
             Stage stage = g.getCurrentStage();
             Level level = stage.getLevel();
             level.removeEntity(this);
+            level.removeMid(this);
         }
     }
 
