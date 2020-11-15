@@ -42,8 +42,8 @@ public class Moveable extends Collide {
     public collisionEvent createEvent(entity e, int i) {
         if(i == 0) {return new collisionEvent(e, Direction.UP);}
         else if(i == 1) {return new collisionEvent(e, Direction.RIGHT);}
-        else if(i == 2) {return new collisionEvent(e, Direction.LEFT);}
-        else if(i == 3) {return new collisionEvent(e, Direction.DOWN);}
+        else if(i == 2) {return new collisionEvent(e, Direction.DOWN);}
+        else if(i == 3) {return new collisionEvent(e, Direction.LEFT);}
         return null;
     }
 
