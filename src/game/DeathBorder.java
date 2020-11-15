@@ -25,6 +25,7 @@ public class DeathBorder extends entity {
     DeathBorder(int x, int y, int volx, int voly) {
         super(x,y,volx,voly);
         countdown = interval;
+        this.setName("DeathBorder");
     }
 
     @Override
