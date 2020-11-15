@@ -21,8 +21,8 @@ public class player extends entity {
         score += i;
     }
 
-    public player(int x, int y, int volx, int voly) {
-        super(x,y,volx,voly);
+    public player(int x, int y) {
+        super(x,y,72,83);
         this.setName("Player");
     }
 

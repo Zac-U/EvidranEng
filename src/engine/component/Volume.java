@@ -76,7 +76,6 @@ public class Volume extends Location {
     }
 
     public boolean Intersect(Volume outside) {
-        System.out.print(this.getName() +" is checking "+outside.getName()+ "\n");
         if(this.locateInVol(outside.getBL()) ||
            this.locateInVol(outside.getTL()) ||
            this.locateInVol(outside.getBR()) ||

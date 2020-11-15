@@ -15,7 +15,6 @@ public class Collide extends Volume {
 
     public boolean collidesWith(Collide c) {
         if(this.equals(c)) {
-            System.out.print(this.getName() + " Equivalent "+ c.getName()+"\n");
             return false;
         }
         if(this.Intersect(c)) {return true;}
@@ -36,5 +35,7 @@ public class Collide extends Volume {
     protected void setMomento(Collide c) {
         super.setMomento(c.getVolume());
     }
+
+    public Collide get(){return this;}
 
 }

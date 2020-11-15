@@ -20,7 +20,7 @@ public class Moveable extends Collide {
     }
 
     public Moveable(Moveable m) {
-        super(m.getCollide());
+        super(m);
         for(int i =0; i < this.speed.length; i++) {this.speed[i] = m.speed[i];}
         }
 
@@ -53,11 +53,31 @@ public class Moveable extends Collide {
                 this.saveMomento();//save a momento
                 Move(i);//move
                 System.out.print("\nchecking collisions\n");
-                for (entity e : elements) { //look for a collision
+                for (entity ent : elements) { //look for a collision
                     System.out.print("checking sub\n");
-                    if (e.collidesWith(this)) {
-                        System.out.print("collision\n");
-                        return createEvent(e, i);
+                    if (ent.collidesWith(this)) {
+                        System.out.print("\t\tcollision\n");
+                        return createEvent(ent, i);
+                    }
+                }
+            }
+
+        }
+        return null;
+    }
+
+    public collisionEvent move(ArrayList<Moveable> elements, boolean temp) {
+        //for every direction this object tries to move
+        for (int i = 0; i < speed.length ; i++) {
+            if(speed[i] != 0) {
+                this.saveMomento();//save a momento
+                Move(i);//move
+                System.out.print("\nchecking collisions\n");
+                for (Moveable ent : elements) { //look for a collision
+                    System.out.print("checking sub\n");
+                    if (ent.collidesWith(this)) {
+                        System.out.print("\t\tcollision\n");
+                        return null;
                     }
                 }
             }
@@ -67,7 +87,7 @@ public class Moveable extends Collide {
     }
 
     public Moveable clone() {
-        return new Moveable(this);
+        return new Moveable(this.getX(),this.getY(),this.getVolX(),this.getVolY());
     }
 
     protected Moveable createMomento() {
