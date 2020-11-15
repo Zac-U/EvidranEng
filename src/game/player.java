@@ -50,14 +50,27 @@ public class player extends entity {
 
     @Override
     public void tick(game g) {
+        boundY();
        collisionEvent collide = this.move(g);
         if(collide != null) {
             System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
 
         }
-
     }
+
+    private void boundY() {
+        int boundingDistance = 6;
+        if (this.getY() <= boundingDistance) {
+            this.setY(boundingDistance);
+            this.setSpeedUp(0);
+        }
+        else if (this.getY() >= 1080 - boundingDistance) {
+            this.setY(1080 - boundingDistance);
+            this.setSpeedDown(0);
+        }
+    }
+
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
