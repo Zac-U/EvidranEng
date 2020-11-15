@@ -47,11 +47,7 @@ public class player extends entity {
     @Override
     public void tick(game g) {
         boundY();
-       collisionEvent collide = this.move(g);
-        if(collide != null) {
-            System.out.print("collision\n");
-            collide.getEntity().accept(this, collide.getDirection());
-        }
+        this.move(g);
         if (dead) { kill(g); }
     }
 

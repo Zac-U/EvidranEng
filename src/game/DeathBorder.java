@@ -63,7 +63,7 @@ public class DeathBorder extends entity {
             if (rand.nextInt(chanceOfWall) < 3) {
                 addWall(level, rand.nextInt(miny));
             }
-            // randomly decides wither or not to place 2 walls
+            // randomly decides whether or not to place 2 walls
             else if (rand.nextInt(chanceOfWall) == 4) {
                 addWall(level, rand.nextInt(miny));
                 addWall(level, rand.nextInt(miny));
@@ -83,10 +83,7 @@ public class DeathBorder extends entity {
         level.addMid(newWall);
     }
 
-    public void draw(GraphicsContext canvas) {
-        //picture.draw(canvas, super.getLocation());
-        picture.draw(canvas, super.getLocation());
-    }
+    public void draw(GraphicsContext canvas) { picture.draw(canvas, super.getLocation()); }
 
     @Override
     public void accept(Boost b, Direction direction) { b.accept(this, Direction.opposite(direction)); }

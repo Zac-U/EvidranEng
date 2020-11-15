@@ -11,23 +11,15 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public abstract class Collectible extends entity {
-
-    boolean collected;
     image myImage;
 
     public Collectible(int x, int y, int volx, int voly, String path, Level.speed s) {
         super(x,y,volx,voly,s);
-        collected = false;
         myImage = new image(path);
     }
 
     @Override
     public void tick(game g) {
-        if (collected) {
-            Stage stage = g.getCurrentStage();
-            Level level = stage.getLevel();
-            level.removeEntity(this);
-        }
         this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
     }
 
