@@ -29,6 +29,8 @@ public class Level implements drawable{
 
     private ArrayList<entity> backGround = new ArrayList<>();
 
+    private ArrayList<entity> middleDraw = new ArrayList<>();
+
 
     public void addEntity(entity e) {
         elements.add(e);
@@ -66,7 +68,7 @@ public class Level implements drawable{
 
         for (entity e: backGround) {e.draw(board);}
 
-        for (entity e: elements) {e.draw(board);}
+        for (entity e: middleDraw) {e.draw(board);}
 
         lastDrawn.draw(board);
     }
@@ -114,5 +116,8 @@ public class Level implements drawable{
         backGround.remove(e);
     }
 
+    public void addMid(entity e) { middleDraw.add(e);}
+
+    public void removeMid(entity e){ middleDraw.remove(e);}
 
 }
