@@ -71,6 +71,5 @@ public class wall extends entity {
         else if(direction.equals("DOWN")) {
             p.pushUp();
         }
-        //also account for hitting player in other directions
     }
 }

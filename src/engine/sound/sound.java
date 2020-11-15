@@ -4,35 +4,52 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.*;
 
-public class sound{
+public class sound extends Thread{
 
-    Long currentFrame;
     Clip clip;
-    AudioInputStream audioInputStream;
+    boolean loop = false;
 
     static String directory;
 
-    public sound(String directory, boolean loop) throws UnsupportedAudioFileException,
-            IOException, LineUnavailableException {
-        this.directory = directory;
-        audioInputStream = AudioSystem.getAudioInputStream(new File(directory).getAbsoluteFile());
-        clip = AudioSystem.getClip();
-        clip.open(audioInputStream);
-        if(loop) {clip.loop(Clip.LOOP_CONTINUOUSLY);}
+    public sound(String directory, boolean loop){
+        File soundFile = new File(directory).getAbsoluteFile();
+        AudioInputStream stream;
+        AudioFormat format;
+        DataLine.Info info;
 
+        this.directory = directory;
+        try {
+            stream = AudioSystem.getAudioInputStream(soundFile);
+            clip = AudioSystem.getClip();
+            clip.open(stream);
+            this.loop = loop;
+            if (loop) {
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+            }
+        }catch (Exception e){}
     }
 
     public void play() {
-        clip.start();
+       start();
     }
 
-    public void stop() {
-        clip.stop();
+    @Override
+    public synchronized void run() {
+        clip.start();
+        try {
+            while(loop) {
+                Thread.sleep(clip.getMicrosecondLength() / 1000);
+            }
+            Thread.sleep(clip.getMicrosecondLength() / 1000);
+            clip.close();
+        }catch(Exception e){}
+    }
+
+    @Override
+    public void interrupt() {
+        super.interrupt();
+        clip.close();
     }
 }

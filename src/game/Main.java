@@ -4,6 +4,7 @@ import engine.aspect.Level;
 import engine.aspect.Stage;
 import engine.core.GameFactory;
 import engine.core.tick;
+import engine.sound.sound;
 import game.Menu.Button;
 import game.Menu.SimpleGraphic;
 
@@ -30,6 +31,9 @@ public class Main {
         lvlGame.addMid(d);
         lvlGame.addEntity(bg);
         lvlGame.addBackground(bg);
+        sound sond = new sound("src/game/Resources/Sound/Evidran_MainTheme.WAV", true);
+        lvlGame.track = sond;
+        sond.play();
 
         stGame.setLevel(lvlGame);
 
