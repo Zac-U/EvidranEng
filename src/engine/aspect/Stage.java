@@ -50,4 +50,6 @@ public class Stage implements drawable{
         level = L;
     }
 
+    public void setGameSpeed(int speed) { level.setGameSpeed(speed); }
+
 }

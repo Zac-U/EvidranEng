@@ -92,9 +92,7 @@ public class Moveable extends Collide {
         this.speed[2] = i;
     }
 
-    public void setSpeedLeft(int i) {
-        this.speed[3] = i;
-    }
+    public void setSpeedLeft(int i) { this.speed[3] = i; }
 
     public boolean equals(Moveable m) {
         if(this.getCollide().equals(m.getCollide()) && equalsSpeed(m)) {return true;}
