@@ -15,22 +15,30 @@ import java.util.Random;
 public class DeathBorder extends entity {
 
     image picture = new image("file:src/game/Resources/Graphics.1080p/gph_errorwall.png");
-    int countdown = 60;
+    int countdown;
+    final int interval = 60;
+    final int chanceOfWall = 4;
+    final int miny = 350;
+    final int maxx = 1920;
 
     DeathBorder(int x, int y, int volx, int voly) {
         super(x,y,volx,voly);
+        countdown = interval;
     }
 
     @Override
     public void tick(game g) {
-        System.out.println("countdown:" + countdown);
+        // considers generating a new wall
         if (countdown == 0) {
             Random rand = new Random();
-            Level level = g.getLevel();
-            int ypos = rand.nextInt(1000);
-            wall newWall = new wall(1920, ypos);
-            level.addEntity(newWall);
-            countdown = 60;
+            // randomly decides whether or not to generate a wall
+            if (rand.nextInt(chanceOfWall) == 0) {
+                Level level = g.getLevel();
+                int ypos = rand.nextInt(miny);
+                wall newWall = new wall(maxx, ypos);
+                level.addEntity(newWall);
+            }
+            countdown = interval;
         } else {
             countdown--;
         }
