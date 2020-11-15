@@ -26,8 +26,9 @@ public class Coin extends Collectible {
     public void tick(game g) {
         super.tick(g);
         collisionEvent E = this.move(g);
-        E.getEntity().accept(this,E.getDirection());
-        if (dead) { kill(g); }
+        System.out.println("\n\nname: " + E.getEntity().getName());
+        E.getEntity().accept(this, E.getDirection());
+        if (dead) { g.kill(this); }
     }
 
     @Override

@@ -52,7 +52,7 @@ public class player extends entity {
     }
 
     //TODO: end the game
-    @Override
+//    @Override
     protected void kill(game g) {}
 
     private void boundY() {

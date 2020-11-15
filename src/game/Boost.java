@@ -24,7 +24,7 @@ public class Boost extends Collectible {
         collisionEvent E = this.move(g);
         E.getEntity().accept(this,E.getDirection());
 
-        if (dead) { kill(g); }
+        if (dead) { g.kill(this); }
     }
 
     public int getSpeedUp() { return this.speedUp; }
