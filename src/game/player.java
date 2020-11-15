@@ -14,6 +14,8 @@ import javafx.scene.paint.Color;
 public class player extends entity {
 
     int sideSpeed = 15;
+
+
     int score = 0;
     private boolean dead;
 
@@ -76,6 +78,7 @@ public class player extends entity {
             this.setSpeedDown(0);
         }
     }
+
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());

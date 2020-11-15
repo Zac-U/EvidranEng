@@ -21,6 +21,8 @@ public class Coin extends Collectible {
 
     }
 
+    public int getValue(){return value;}
+
     @Override
     public void tick(game g) {
         super.tick(g);
