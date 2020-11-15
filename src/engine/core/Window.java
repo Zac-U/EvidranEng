@@ -83,17 +83,25 @@ public class Window extends Application {
         new AnimationTimer()
         {
             int count = 0;
+            int gameSpeed = 1;
+            long startTime = System.currentTimeMillis();
             public void handle(long currentNanoTime)
             {
-
                 count++;
                 GraphicsContext temp = board.getGraphicsContext2D();
                 temp.setFill(Color.BLACK);
                 temp.fillRect(0,0,1920,1080);
                 Gam.draw(temp);
+
+                long secsElapsed = (System.currentTimeMillis() - startTime) / 1000;
+                int newSpeed = Math.floorDiv((int) (secsElapsed), 10) + 1;
+                if (newSpeed != gameSpeed) {
+                    gameSpeed = newSpeed;
+                    Gam.setGameSpeed(gameSpeed);
+                }
+
                 if((count % 2) == 0) {Gam.update();}
                 if(count >= 60) {count = 0;}
-
             }
         }.start();
 

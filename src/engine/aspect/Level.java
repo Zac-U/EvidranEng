@@ -120,4 +120,12 @@ public class Level implements drawable{
 
     public void removeMid(entity e){ middleDraw.remove(e);}
 
+    public void setGameSpeed(int speed) {
+        for (entity e : elements) {
+            if (!e.getName().equals("Player")) {
+                e.setSpeedLeft(speed * 5);
+            }
+        }
+    }
+
 }
