@@ -18,10 +18,19 @@ public class Collide extends Volume {
     }
 
     public boolean collidesWith(Collide c) {
+        if(this.equals(c) || this.getName().equals(c.getName())) {
+
+            return false;
+        }
+        if(this.Intersect(c) || c.Intersect(this)) {return true;}
+        return false;
+    }
+
+    public boolean collidesWithEx(Collide c) {
         if(this.equals(c)) {
             return false;
         }
-        if(this.Intersect(c)) {return true;}
+        if(this.IntersectEx(c) || c.IntersectEx(this)) {return true;}
         return false;
     }
 
