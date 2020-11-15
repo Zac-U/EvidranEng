@@ -21,5 +21,9 @@ public class DeathBorder extends entity {
     public void tick(game g) {
 
     }
+
+    public void draw(GraphicsContext canvas) {
+        picture.draw(canvas, super.getLocation());
+    }
 }
 

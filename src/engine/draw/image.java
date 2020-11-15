@@ -19,7 +19,5 @@ public class image {
 
     public void draw(GraphicsContext canvas, Location local) {
         canvas.drawImage(picture,local.getX(),local.getY());
-        System.out.println("x: " + local.getX() + " y: " + local.getY() + "\n");
     }
-
 }
