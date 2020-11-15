@@ -1,3 +1,0 @@
-## Game Info
-
-This is where stuff for the game goes...
