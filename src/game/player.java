@@ -14,6 +14,7 @@ public class player extends entity {
 
     int sideSpeed = 15;
 
+
     int score = 0;
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
@@ -103,7 +104,7 @@ public class player extends entity {
     @Override
     public void accept(wall w, String direction) {
         if(direction.equals("LEFT")) {
-            this.addX(-Main.getSpeed());
+            this.addX(-this.coreSpeed.getSpeed());
         }
     }
 }

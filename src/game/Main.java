@@ -61,5 +61,4 @@ public class Main {
 
     }
 
-    public static int getSpeed(){ return 5;}
 }

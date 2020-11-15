@@ -18,7 +18,7 @@ import game.*;
  */
 public abstract class entity extends Moveable implements drawable, tick {
 
-    Level.speed coreSpeed;
+    public Level.speed coreSpeed;
 
     public entity(entity e) {
         super(e.getSuper());

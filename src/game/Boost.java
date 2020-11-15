@@ -13,11 +13,12 @@ public class Boost extends Collectible {
         super(x, y, volx, voly, "file:src/game/Resources.Graphics.4k/gph_coin.png", s);
         speedUp = 10;
         this.setName("Boost");
-        this.setSpeedLeft(Main.getSpeed());
+
     }
 
     @Override
     public void tick(game g) {
+        this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
 
         collisionEvent E = this.move(g);
         E.getEntity().accept(this,E.getDirection());

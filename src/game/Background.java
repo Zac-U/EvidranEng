@@ -21,7 +21,7 @@ public class Background extends entity{
         currentTiles =  new int[] {0, rand.nextInt(6)};
         super.setCollider(false);
         this.setName("Background");
-        this.setSpeedLeft(Main.getSpeed()/2);
+
     }
 
     private void setTiles() {
@@ -36,7 +36,7 @@ public class Background extends entity{
 
     @Override
     public void tick(game g) {
-
+        this.setSpeedLeft(g.getLevel().getSpeed().getSpeed()/2);
         this.move(g);
 
         if (this.getX() + this.getVolX() < 0) {
