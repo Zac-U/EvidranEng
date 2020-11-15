@@ -1,5 +1,7 @@
 package game;
 
+import engine.aspect.Level;
+import engine.aspect.Stage;
 import engine.draw.image;
 import engine.entity.entity;
 import engine.event.collisionEvent;
@@ -21,6 +23,11 @@ public class wall extends entity {
         if (collide != null) {
             System.out.print("collision\n");
             collide.getEntity().visit(this, collide.getDirection());
+        }
+        if (this.getX() < (-this.getVolX())) {
+            Stage stage = g.getCurrentStage();
+            Level level = stage.getLevel();
+            level.removeEntity(this);
         }
     }
 
