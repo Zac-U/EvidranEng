@@ -52,4 +52,6 @@ public class sound extends Thread{
         super.interrupt();
         clip.close();
     }
+
+    public void done(){}
 }
