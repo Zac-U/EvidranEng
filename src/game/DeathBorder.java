@@ -22,8 +22,8 @@ public class DeathBorder extends entity {
     final int miny = 350;
     final int maxx = 1920;
 
-    DeathBorder(int x, int y, int volx, int voly) {
-        super(x,y,volx,voly);
+    DeathBorder(int x, int y, int volx, int voly, Level.speed s) {
+        super(x,y,volx,voly, s);
         countdown = interval;
         this.setName("DeathBorder");
     }
@@ -39,7 +39,7 @@ public class DeathBorder extends entity {
             if (rand.nextInt(chanceOfWall) < 3) {
 
                 ypos = rand.nextInt(miny);
-                wall newWall = new wall(maxx, ypos);
+                wall newWall = new wall(maxx, ypos, level.getSpeed());
                 level.addEntity(newWall);
                 level.addMid(newWall);
             }
@@ -47,11 +47,11 @@ public class DeathBorder extends entity {
             else if (rand.nextInt(chanceOfWall) == 4){
 
                 ypos = rand.nextInt(miny);
-                wall wall1 = new wall(maxx, ypos);
+                wall wall1 = new wall(maxx, ypos , level.getSpeed());
                 level.addEntity(wall1);
                 level.addMid(wall1);
                 ypos = rand.nextInt(miny);
-                wall wall2 = new wall(maxx, ypos);
+                wall wall2 = new wall(maxx, ypos, level.getSpeed());
                 level.addEntity(wall2);
             }
             countdown = interval;

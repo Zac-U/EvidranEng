@@ -13,10 +13,10 @@ public class wall extends entity {
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_wall.png");
 
-    public wall(int x, int y) {
-        super(x, y, 96, 446);
+    public wall(int x, int y, Level.speed s) {
+        super(x, y, 96, 446, s);
         this.setName("Wall");
-        this.setSpeedLeft(5);
+        this.setSpeedLeft(Main.getSpeed());
     }
 
     @Override

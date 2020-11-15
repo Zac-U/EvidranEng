@@ -1,7 +1,7 @@
 package game.Menu;
 
+import engine.aspect.Level;
 import engine.entity.entity;
-import engine.event.Visitor;
 import engine.event.windowEvent;
 import engine.component.Location;
 import engine.draw.image;
@@ -13,8 +13,8 @@ public class SimpleGraphic extends entity{
 
     image picture;
 
-    public SimpleGraphic(int x, int y, int volx, int voly, String path) {
-        super(x, y, volx, voly);
+    public SimpleGraphic(int x, int y, int volx, int voly, String path, Level.speed s) {
+        super(x, y, volx, voly,s);
         picture = new image(path);
     }
 
@@ -23,10 +23,7 @@ public class SimpleGraphic extends entity{
 
     }
 
-    @Override
-    public void accept(Visitor visitor) {
 
-    }
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());

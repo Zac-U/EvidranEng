@@ -15,10 +15,10 @@ public class Main {
         Level lvlGame = new Level();
         Stage stGame = new Stage("Stage_One");
         //Create level entities
-        player p = new player(500, 500);
-        wall w = new wall(1000,10);
-        DeathBorder d = new DeathBorder(0,0,52,1080);
-        Background bg = new Background();
+        player p = new player(500, 500,lvlGame.getSpeed());
+        wall w = new wall(1000,10,lvlGame.getSpeed());
+        DeathBorder d = new DeathBorder(0,0,52,1080,lvlGame.getSpeed());
+        Background bg = new Background(lvlGame.getSpeed());
         //Add entities to level
         lvlGame.addEntity(p);
         lvlGame.setLastDrawn(p);
@@ -37,10 +37,10 @@ public class Main {
         Level lvlMenu = new Level();
         Stage stMenu = new Stage("Stage_Menu");
         //Create level entities
-        Button btnPlay = new Button(500, 500, 100, 100);
+        Button btnPlay = new Button(500, 500, 100, 100,lvlGame.getSpeed());
         btnPlay.setText("Play");
         btnPlay.setNextStage(stGame);
-        SimpleGraphic title = new SimpleGraphic(0, 0, 1920, 1080, "file:src/game/Resources/Graphics/1080p/gph_titleScreen.png");
+        SimpleGraphic title = new SimpleGraphic(0, 0, 1920, 1080, "file:src/game/Resources/Graphics/1080p/gph_titleScreen.png",lvlGame.getSpeed());
         //Add entities to level
         lvlMenu.addEntity(btnPlay);
         lvlMenu.setLastDrawn(btnPlay);
@@ -60,4 +60,6 @@ public class Main {
         return maker.create();
 
     }
+
+    public static int getSpeed(){ return 5;}
 }

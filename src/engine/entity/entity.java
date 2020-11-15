@@ -1,5 +1,6 @@
 package engine.entity;
 
+import engine.aspect.Level;
 import engine.core.tick;
 import engine.draw.drawable;
 import engine.event.collisionEvent;
@@ -17,14 +18,15 @@ import game.*;
  */
 public abstract class entity extends Moveable implements drawable, tick {
 
-
+    Level.speed coreSpeed;
 
     public entity(entity e) {
         super(e.getSuper());
     }
 
-    public entity(int x, int y, int volx, int voly) {
+    public entity(int x, int y, int volx, int voly, Level.speed speedIn) {
         super(x,y,volx,voly);
+        coreSpeed = speedIn;
     }
 
     protected Moveable getSuper() {

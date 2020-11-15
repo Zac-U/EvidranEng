@@ -1,5 +1,6 @@
 package game;
 
+import engine.aspect.Level;
 import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
@@ -21,8 +22,8 @@ public class player extends entity {
         score += i;
     }
 
-    public player(int x, int y) {
-        super(x,y,72,83);
+    public player(int x, int y, Level.speed s) {
+        super(x,y,72,83,s);
         this.setName("Player");
     }
 
@@ -50,14 +51,27 @@ public class player extends entity {
 
     @Override
     public void tick(game g) {
+        boundY();
        collisionEvent collide = this.move(g);
         if(collide != null) {
             System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
 
         }
-
     }
+
+    private void boundY() {
+        int boundingDistance = 6;
+        if (this.getY() <= boundingDistance) {
+            this.setY(boundingDistance);
+            this.setSpeedUp(0);
+        }
+        else if (this.getY() >= 1080 - boundingDistance) {
+            this.setY(1080 - boundingDistance);
+            this.setSpeedDown(0);
+        }
+    }
+
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
@@ -89,7 +103,7 @@ public class player extends entity {
     @Override
     public void accept(wall w, String direction) {
         if(direction.equals("LEFT")) {
-            //push player back
+            this.addX(-Main.getSpeed());
         }
     }
 }

@@ -1,5 +1,6 @@
 package game;
 
+import engine.aspect.Level;
 import engine.component.Location;
 import engine.draw.image;
 import engine.entity.entity;
@@ -13,13 +14,14 @@ public class Background extends entity{
     int[] currentTiles;
     Random rand;
 
-    Background() {
-        super(0, 0, 1920, 1080);
+    Background(Level.speed speed) {
+        super(0, 0, 1920, 1080, speed);
         setTiles();
         rand = new Random();
         currentTiles =  new int[] {0, rand.nextInt(6)};
         super.setCollider(false);
         this.setName("Background");
+        this.setSpeedLeft(Main.getSpeed()/2);
     }
 
     private void setTiles() {
@@ -34,7 +36,7 @@ public class Background extends entity{
 
     @Override
     public void tick(game g) {
-        this.setSpeedLeft(2);
+
         this.move(g);
 
         if (this.getX() + this.getVolX() < 0) {

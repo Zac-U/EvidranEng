@@ -1,7 +1,7 @@
 package game.Menu;
 
+import engine.aspect.Level;
 import engine.entity.entity;
-import engine.event.Visitor;
 import engine.event.windowEvent;
 import engine.component.Location;
 import engine.draw.image;
@@ -16,8 +16,8 @@ public class Button extends entity {
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
     boolean clicked = false;
 
-    public Button(int x, int y, int volx, int voly) {
-        super(x, y, volx, voly);
+    public Button(int x, int y, int volx, int voly, Level.speed s) {
+        super(x, y, volx, voly,s);
     }
 
     public void setText(String text) {
@@ -50,10 +50,7 @@ public class Button extends entity {
         t.setText(text);
     }
 
-    @Override
-    public void accept(Visitor visitor) {
 
-    }
 
 
 }
