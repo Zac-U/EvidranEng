@@ -16,7 +16,7 @@ public class DeathBorder extends entity {
 
     image picture = new image("file:src/game/Resources/Graphics.1080p/gph_errorwall.png");
     int countdown;
-    int chanceOfWall = 4;
+    int chanceOfWall = 10;
     final int interval = 60;
     final int miny = 350;
     final int maxx = 1920;
@@ -31,12 +31,24 @@ public class DeathBorder extends entity {
         // considers generating a new wall
         if (countdown == 0) {
             Random rand = new Random();
+            Level level = g.getLevel();
+            int ypos;
             // randomly decides whether or not to generate a wall
-            if (rand.nextInt(chanceOfWall) == 0) {
-                Level level = g.getLevel();
-                int ypos = rand.nextInt(miny);
+            if (rand.nextInt(chanceOfWall) < 3) {
+
+                ypos = rand.nextInt(miny);
                 wall newWall = new wall(maxx, ypos);
                 level.addEntity(newWall);
+            }
+            // randomly decides wither or not to place 2 walls
+            else if (rand.nextInt(chanceOfWall) == 4){
+
+                ypos = rand.nextInt(miny);
+                wall wall1 = new wall(maxx, ypos);
+                level.addEntity(wall1);
+                ypos = rand.nextInt(miny);
+                wall wall2 = new wall(maxx, ypos);
+                level.addEntity(wall2);
             }
             countdown = interval;
         } else {
@@ -48,4 +60,5 @@ public class DeathBorder extends entity {
         picture.draw(canvas, super.getLocation());
     }
 }
+
 

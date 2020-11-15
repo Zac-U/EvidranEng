@@ -85,6 +85,7 @@ public class Window extends Application {
             int count = 0;
             public void handle(long currentNanoTime)
             {
+
                 count++;
                 GraphicsContext temp = board.getGraphicsContext2D();
                 temp.setFill(Color.BLACK);
