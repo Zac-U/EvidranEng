@@ -105,7 +105,9 @@ public class Level implements drawable{
 
 
     public void update(tick.game gam) {
-       for (entity i: elements) {i.tick(gam);}
+        ArrayList<entity> stance = new ArrayList<>();
+        stance.addAll(elements);
+       for (entity i: stance) {i.tick(gam);}
     }
 
     public ArrayList<entity> getEntityList() {

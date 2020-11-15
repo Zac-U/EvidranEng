@@ -57,7 +57,7 @@ public class Moveable extends Collide {
                 for (entity ent : elements) { //go over every other object
                     if((this.collider && ent.collider) && !(this.getName().equals(ent.getName()))) {//if you and they are collideable
                         if (ent.collidesWith(this)) {//check if you collide
-                            System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
+                            //System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
                             return createEvent(ent, i);//return event with it in
                         }
                     }
