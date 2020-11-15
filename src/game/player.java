@@ -3,7 +3,6 @@ package game;
 import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
-import engine.event.Visitor;
 import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
@@ -60,17 +59,16 @@ public class player extends entity {
 
     }
 
-   // public void visit(wall w, String direction) {
-        //if(direction.equals("LEFT")) {
-            //move player back by wall speed
-        //}
-    //}
-
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
     }
 
-    public void accept(Visitor visitor) {
-        visitor.accept(this);
+
+    public void visit(wall w){
+        System.out.print("player accepts wall\n");
     }
+
+
+
+
 }

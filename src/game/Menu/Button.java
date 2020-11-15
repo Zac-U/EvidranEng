@@ -39,4 +39,6 @@ public class Button extends entity{
         //picture.draw(canvas, super.getLocation());
         picture.draw(canvas, super.getLocation());
     }
+
+
 }

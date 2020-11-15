@@ -4,7 +4,6 @@ import engine.aspect.Level;
 import engine.aspect.Stage;
 import engine.draw.image;
 import engine.entity.entity;
-import engine.event.Visitor;
 import engine.event.collisionEvent;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -25,7 +24,6 @@ public class wall extends entity {
         if(remove){this.removeWall(g);}
         collisionEvent collide = this.move(g);
         if (collide != null) {
-            collide.getEntity().visit(this, collide.getDirection());
         }
         if (this.getX() < (-this.getVolX())) {
             removeWall(g);
@@ -45,12 +43,13 @@ public class wall extends entity {
         picture.draw(canvas, this.getLocation());
     }
 
-    public void visit(DeathBorder d) {
-        this.remove = true;
+    public void accept(player p) {
+        System.out.print("wall accepts player\n");
     }
 
-    public void accept(Visitor visitor) {
-        visitor.accept(this);
+    public void accept(DeathBorder d){
+        System.out.print("Death wall meets wall\n");
     }
+
 
 }

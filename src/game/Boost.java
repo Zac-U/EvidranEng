@@ -1,7 +1,6 @@
 package game;
 
 import engine.entity.entity;
-import engine.event.Visitor;
 
 public class Boost extends Collectible {
 
@@ -20,7 +19,4 @@ public class Boost extends Collectible {
         collected = true;
     }
 
-    public void accept(Visitor visitor) {
-        visitor.accept(this);
-    }
 }

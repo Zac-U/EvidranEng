@@ -3,7 +3,6 @@ package game;
 import engine.component.Location;
 import engine.draw.image;
 import engine.entity.entity;
-import engine.event.Visitor;
 import javafx.scene.canvas.GraphicsContext;
 import java.util.ArrayList;
 import java.util.Random;
@@ -50,7 +49,4 @@ public class Background extends entity{
         tiles.get(currentTiles[1]).draw(canvas, this.getLocation().add(new Location(1920, 0)));
     }
 
-    public void accept(Visitor visitor) {
-        visitor.accept(this);
-    }
 }
