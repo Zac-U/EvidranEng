@@ -2,6 +2,7 @@ package game;
 
 import engine.draw.image;
 import engine.entity.entity;
+import engine.event.collisionEvent;
 import javafx.scene.canvas.GraphicsContext;
 
 public class wall extends entity {
@@ -10,14 +11,17 @@ public class wall extends entity {
 
     public wall(int x, int y) {
         super(x, y, 96, 446);
+        this.setName("Wall");
     }
 
     @Override
     public void tick(game g) {
-        //set speed to standard speed
         this.setSpeedLeft(5);
-        this.move(g);
-        //if collide
+        collisionEvent collide = this.move(g);
+        if (collide != null) {
+            System.out.print("collision\n");
+            collide.getEntity().visit(this, collide.getDirection());
+        }
     }
 
     public void draw(GraphicsContext canvas) {

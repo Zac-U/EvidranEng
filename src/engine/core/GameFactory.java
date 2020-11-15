@@ -3,7 +3,7 @@ package engine.core;
 import engine.aspect.Level;
 import engine.aspect.Stage;
 import engine.entity.entity;
-import engine.event.event;
+
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -41,9 +41,7 @@ public class GameFactory {
         Stage currentStage;
         ArrayList<Stage> elements = new ArrayList<>();
 
-        public void visit(event e) {
-            e.visit(this);
-        }
+
 
         @Override
         public Stage getCurrentStage() {

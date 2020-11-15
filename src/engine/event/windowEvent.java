@@ -3,7 +3,7 @@ package engine.event;
 import engine.component.Location;
 import engine.core.tick;
 
-public class windowEvent implements event {
+public class windowEvent{
 
    String event;
    String key;
@@ -23,10 +23,6 @@ public class windowEvent implements event {
         this.key = key;
     }
 
-    @Override
-    public void visit(tick.game game) {
-        //game.getCurrentStage().
-    }
 
     public String getEvent() {
        return event;

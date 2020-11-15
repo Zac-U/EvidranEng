@@ -65,15 +65,18 @@ public class Volume extends Location {
     }
 
     public boolean locateInVol(Location point)  {
-        //if point is greater than TL and less the BR then it's in point
-        if(  (this.getTL().greaterX(point.getX()) && this.getTL().greaterY(point.getY())) &&
-                (this.getBR().lesserX(point.getX()) && this.getTL().lesserY(point.getY()))      )  {
-            return true;
-        }
+        int X1 = this.getTL().getX();
+        int X2 = this.getBR().getX();
+        int Y1 = this.getTL().getY();
+        int Y2 = this.getBR().getY();
+        int XP = point.getX();
+        int YP = point.getY();
+        if( (XP >= X1 && XP <= X2) && (YP >= Y1 && YP<=Y2)) {return true;}
         return false;
     }
 
     public boolean Intersect(Volume outside) {
+        System.out.print(this.getName() +" is checking "+outside.getName()+ "\n");
         if(this.locateInVol(outside.getBL()) ||
            this.locateInVol(outside.getTL()) ||
            this.locateInVol(outside.getBR()) ||

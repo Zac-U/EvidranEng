@@ -23,22 +23,18 @@ public class player extends entity {
 
     public player(int x, int y, int volx, int voly) {
         super(x,y,volx,voly);
+        this.setName("Player");
     }
 
     //set side speed according to key
     @Override
     public void keyPressed(windowEvent E) {
         if(E.getKey().equals("A")) {
-
             super.setSpeedUp(sideSpeed);
-
         }
         else if(E.getKey().equals("D")) {
-
             super.setSpeedDown(sideSpeed);
-
         }
-
     }
 
     @Override
@@ -54,8 +50,9 @@ public class player extends entity {
 
     @Override
     public void tick(game g) {
-       collisionEvent collide = super.move(g);
+       collisionEvent collide = this.move(g);
         if(collide != null) {
+            System.out.print("collision\n");
             collide.getEntity().visit(this, collide.getDirection());
         }
 
@@ -69,8 +66,5 @@ public class player extends entity {
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
-        //canvas.setFill(Color.RED);
-        //canvas.fillRect(this.getX(), this.getY(),this.getVolX(),this.getVolY());
-
     }
 }

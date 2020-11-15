@@ -2,7 +2,6 @@ package engine.entity;
 
 import engine.core.tick;
 import engine.draw.drawable;
-import engine.draw.facade;
 import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import engine.physics.Moveable;
@@ -17,7 +16,7 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public abstract class entity extends Moveable implements drawable, tick {
 
-    facade f;
+
 
     public entity(entity e) {
         super(e.getSuper());
@@ -32,14 +31,8 @@ public abstract class entity extends Moveable implements drawable, tick {
     }
 
     @Override
-    public void draw(GraphicsContext board) {
-        //f.giveVolume(super.getVolume());
-        //f.draw(board);
-    }
+    public void draw(GraphicsContext board) {}
 
-    protected void setFacade(facade f) {
-        this.f = f;
-    }
 
     public boolean equals(entity e) {
         if(super.equals(e.getSuper())) {return true;}
@@ -54,11 +47,6 @@ public abstract class entity extends Moveable implements drawable, tick {
 
     protected collisionEvent move(game game) {
        return super.move(game.getEntityList());
-    }
-
-    public boolean collidesWith(entity e) {
-        if(this.equals(e)) {return false;}
-        return super.collidesWith(e.getCollide());
     }
 
     public void visit(entity e) {}

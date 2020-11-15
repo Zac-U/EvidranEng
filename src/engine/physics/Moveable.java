@@ -4,7 +4,6 @@ import engine.entity.entity;
 import engine.event.collisionEvent;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 //class describes objects that can move
 public class Moveable extends Collide {
@@ -50,12 +49,16 @@ public class Moveable extends Collide {
     public collisionEvent move(ArrayList<entity> elements) {
            //for every direction this object tries to move
         for (int i = 0; i < speed.length ; i++) {
-            this.saveMomento();//save a momento
-            Move(i);
-            for (entity e: elements) {
-                if(e.collidesWith(this.getCollide())) {
-                    System.out.print("collision\n");
-                    return createEvent(e, i);
+            if(speed[i] != 0) {
+                this.saveMomento();//save a momento
+                Move(i);//move
+                System.out.print("\nchecking collisions\n");
+                for (entity e : elements) { //look for a collision
+                    System.out.print("checking sub\n");
+                    if (e.collidesWith(this)) {
+                        System.out.print("collision\n");
+                        return createEvent(e, i);
+                    }
                 }
             }
 

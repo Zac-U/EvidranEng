@@ -19,16 +19,12 @@ import java.util.Set;
  */
 public class Stage implements drawable{
 
-    ArrayList<Button> buttons;
     Level level;
     String name;
 
     @Override
     public void draw(GraphicsContext board) {
-        //for (Button b: buttons
-            // ) {
-            //b.draw(board);
-       //}
+
         level.draw(board);
     }
 

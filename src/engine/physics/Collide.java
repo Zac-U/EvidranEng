@@ -14,13 +14,16 @@ public class Collide extends Volume {
     }
 
     public boolean collidesWith(Collide c) {
-        if(this.equals(c)) {return false;}
+        if(this.equals(c)) {
+            System.out.print(this.getName() + " Equivalent "+ c.getName()+"\n");
+            return false;
+        }
         if(this.Intersect(c)) {return true;}
         return false;
     }
 
     public boolean equals(Collide c) {
-        if(super.equals(c.clone())) {return true;}
+        if(this.getX() == c.getX() && this.getY() == c.getY() && this.getVolX()==c.getVolX() && this.getVolY() == c.getVolY()) {return true;}
         return false;
     }
 
