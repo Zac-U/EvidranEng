@@ -99,22 +99,20 @@ public class player extends entity {
 
     @Override
     public void accept(wall w, Direction direction) {
-        if(direction.equals(Direction.LEFT)) {
+        if(direction.equals(Direction.RIGHT ) || direction.equals(Direction.LEFT)) {
             pushBack();
         } else if (direction.equals(Direction.UP)) {
-            pushUp();
-        } else if (direction.equals(Direction.DOWN)) {
             pushDown();
+        } else if (direction.equals(Direction.DOWN)) {
+            pushUp();
         }
     }
 
     public void pushBack(){
-        this.addX(-this.coreSpeed.getSpeed());
+        this.takeX(this.coreSpeed.getSpeed());
     }
 
-    public void pushUp(){
-        this.addY(-this.sideSpeed);
-    }
+    public void pushUp(){this.takeY(this.sideSpeed);}
 
     public void pushDown(){
         this.addY(this.sideSpeed);

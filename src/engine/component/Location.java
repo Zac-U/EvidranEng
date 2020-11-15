@@ -41,6 +41,14 @@ public class Location {
         setY(y);
     }
 
+    public void takeY(int y){
+        this.y -= y;
+    }
+
+    public void takeX(int x){
+        this.x  -= x;
+    }
+
     protected Location clone() {
         return new Location(this.x, this.y);
     }
