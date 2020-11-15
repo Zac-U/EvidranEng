@@ -12,12 +12,14 @@ public class Main {
         wall w = new wall(1000,10);
         Level l = new Level();
         DeathBorder d = new DeathBorder(0,0,52,1080);
+        Background bg = new Background();
         l.addEntity(p);
         l.setLastDrawn(p);
         l.addKeyPressed(p);
         l.addKeyReleased(p);
         l.addEntity(w);
         l.addEntity(d);
+        l.addBackground(bg);
         Stage st = new Stage("Stage_One");
 
         st.setLevel(l);
