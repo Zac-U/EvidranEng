@@ -42,7 +42,6 @@ public class GameFactory {
         ArrayList<Stage> elements = new ArrayList<>();
 
 
-
         @Override
         public Stage getCurrentStage() {
             return currentStage;
@@ -57,7 +56,8 @@ public class GameFactory {
         public void setCurrentStage(Stage s) {
             try {
                 currentStage.getLevel().stopSound();
-            }catch (Exception e){}
+            } catch (Exception e) {
+            }
             this.currentStage = s;
         }
 
@@ -109,7 +109,14 @@ public class GameFactory {
             }
         }
     }
+        public void setGameSpeed(int speed) {
+            currentStage.setGameSpeed(speed);
+        }
 
-
-
+        public void kill(entity e) {
+            Level level = currentStage.getLevel();
+            level.removeMid(e);
+            level.removeEntity(e);
+        }
+    }
 }

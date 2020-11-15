@@ -28,6 +28,7 @@ public interface tick {
         // REVIEW:
         void setGameSpeed(int speed);
         void setStage(String name);
+        void kill(entity e);
     }
 
 }

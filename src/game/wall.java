@@ -23,7 +23,7 @@ public class wall extends entity {
 
     @Override
     public void tick(game g) {
-        if (dead) { kill(g); }
+        if (dead) { g.kill(this); }
         this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
         ArrayList<collisionEvent> collide = this.move(g);
         for (collisionEvent c: collide) {

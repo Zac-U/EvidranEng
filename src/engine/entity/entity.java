@@ -35,12 +35,12 @@ public abstract class entity extends Moveable implements drawable, tick {
         dead = false;
     }
 
-    protected void kill(game g) {
-        Stage stage = g.getCurrentStage();
-        Level level = stage.getLevel();
-        level.removeEntity(this);
-        level.removeMid(this);
-    }
+//    protected void kill(game g) {
+//        Stage stage = g.getCurrentStage();
+//        Level level = stage.getLevel();
+//        level.removeEntity(this);
+//        level.removeMid(this);
+//    }
 
     protected Moveable getSuper() {
         return super.clone();

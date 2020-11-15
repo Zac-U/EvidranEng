@@ -89,7 +89,6 @@ public class player extends entity {
         }
     }
 
-
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
     }

@@ -28,7 +28,7 @@ public class Boost extends Collectible {
             c.getEntity().accept(this,c.getDirection());
         }
 
-        if (dead) { kill(g); }
+        if (dead) { g.kill(this); }
     }
 
     public int getSpeedUp() { return this.speedUp; }

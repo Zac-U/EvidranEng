@@ -18,9 +18,10 @@ public class DeathBorder extends entity {
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_errorwall.png");
     int countdown;
-    int chanceOfWall = 5;
-    final int interval = 60;
-    final int miny = 350;
+    int chanceOfItem = 7;
+    final int interval = 50;
+    final int wally = 350;
+    final int coiny = 900;
     final int maxx = 1920;
     Random rand = new Random();
 
@@ -33,41 +34,25 @@ public class DeathBorder extends entity {
     @Override
     public void tick(game g) {
         Level level = g.getLevel();
-        generateWalls(level);
-        //generateCoins(level);
         countdown--;
         if (countdown < 0) {
+            generateItem(level);
             countdown = interval;
         }
     }
 
-    private void generateCoins(Level level) {
-        // considers generating a new wall
-        if (countdown == interval / 2) {
-            // randomly decides whether or not to generate a wall
-            if (rand.nextInt(chanceOfWall) < 3) {
-                addCoin(level, rand.nextInt(miny));
-            }
-            // randomly decides wither or not to place 2 walls
-            else if (rand.nextInt(chanceOfWall) == 4) {
-                addCoin(level, rand.nextInt(miny));
-                addCoin(level, rand.nextInt(miny));
-            }
-        }
-    }
-
-    private void generateWalls(Level level) {
-        // considers generating a new wall
-        if (countdown == 0) {
-            // randomly decides whether or not to generate a wall
-            if (rand.nextInt(chanceOfWall) < 3) {
-                addWall(level, rand.nextInt(miny));
-            }
-            // randomly decides whether or not to place 2 walls
-            else if (rand.nextInt(chanceOfWall) == 4) {
-                addWall(level, rand.nextInt(miny));
-                addWall(level, rand.nextInt(miny));
-            }
+    private void generateItem(Level level) {
+        int value = rand.nextInt(chanceOfItem);
+        if (value < 2) {
+            addWall(level, rand.nextInt(wally));
+        } else if (value < 4) {
+            addCoin(level, rand.nextInt(coiny));
+        } else if (value < 5) {
+            addWall(level, rand.nextInt(wally));
+            addWall(level, rand.nextInt(wally));
+        } else if (value < 6) {
+            addCoin(level, rand.nextInt(coiny));
+            addCoin(level, rand.nextInt(coiny));
         }
     }
 
