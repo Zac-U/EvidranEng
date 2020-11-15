@@ -1,7 +1,7 @@
 package game.Menu;
 
 import engine.entity.entity;
-import engine.event.Visitor;
+//import engine.event.Visitor;
 import engine.event.windowEvent;
 import engine.component.Location;
 import engine.draw.image;
@@ -50,10 +50,10 @@ public class Button extends entity {
         t.setText(text);
     }
 
-    @Override
+/*    @Override
     public void accept(Visitor visitor) {
 
-    }
+    }*/
 
 
 }
