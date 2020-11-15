@@ -57,7 +57,6 @@ public class player extends entity {
         if(collide != null) {
             System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
-
         }
     }
 

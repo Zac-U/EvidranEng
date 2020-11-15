@@ -48,14 +48,15 @@ public class Main {
         lvlMenu.addBackground(bg);
         lvlMenu.addEntity(title);
         lvlMenu.addMid(title);
+        lvlMenu.addKeyReleased(btnPlay);
 
-        stMenu.setLevel(lvlMenu);
+        stMenu.setLevel(lvlGame);
 
         //Add stages/levels to Game
         maker.addStage(stMenu);
         maker.addStage(stGame);
 
-        maker.setStartStage(stGame);
+        maker.setStartStage(stMenu);
 
         return maker.create();
 
