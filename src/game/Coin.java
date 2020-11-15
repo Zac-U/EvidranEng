@@ -32,6 +32,7 @@ public class Coin extends Collectible {
         for (collisionEvent c: collide) {
             c.getEntity().accept(this,c.getDirection());
         }
+        if (dead) { g.kill(this); }
 
 
     }

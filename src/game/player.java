@@ -64,7 +64,9 @@ public class player extends entity {
             c.getEntity().accept(this,c.getDirection());
         }
 
-        if(push) {this.setSpeedLeft(0);}
+
+
+        if (push) {this.setSpeedLeft(0);}
         if (dead) { kill(g); }
     }
 
@@ -86,6 +88,9 @@ public class player extends entity {
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
+        String scoreBoard = "Score: " + String.valueOf(score);
+        canvas.setFill(Paint.);
+        canvas.fillText(scoreBoard, 500, 500);
     }
 
     @Override

@@ -29,9 +29,9 @@ public class wall extends entity {
         for (collisionEvent c: collide) {
             c.getEntity().accept(this,c.getDirection());
         }
-        if (this.getX() < (-this.getVolX())) {
-            kill(g);
-        }
+//        if (this.getX() < (-this.getVolX())) {
+//            kill(g);
+//        }
     }
 
     public void kill(game g) {
