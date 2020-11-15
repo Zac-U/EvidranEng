@@ -12,6 +12,8 @@ import engine.sound.sound;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -96,8 +98,12 @@ public class player extends entity {
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
         String scoreBoard = "Score: " + String.valueOf(score);
-        canvas.setFill(Paint.);
-        canvas.fillText(scoreBoard, 500, 500);
+        Font font = Font.font("Helvetica", FontWeight.BOLD, 30);
+        canvas.setFont(font);
+        canvas.setStroke(Color.WHITE);
+        canvas.setLineWidth(1);
+        canvas.fillText(scoreBoard, 700, 750);
+        canvas.strokeText(scoreBoard, 700, 750);
     }
 
     @Override
