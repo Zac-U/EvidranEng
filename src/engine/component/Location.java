@@ -45,11 +45,11 @@ public class Location {
         return new Location(this.x, this.y);
     }
 
-    protected void addX(int V) {
+    public void addX(int V) {
         this.x = this.x + V;
     }
 
-    protected void addY(int V) {
+    public void addY(int V) {
         this.y = this.y + V;
     }
 

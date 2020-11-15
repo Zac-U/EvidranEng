@@ -89,7 +89,7 @@ public class player extends entity {
     @Override
     public void accept(wall w, String direction) {
         if(direction.equals("LEFT")) {
-            //push player back
+            this.addX(-Main.getSpeed());
         }
     }
 }

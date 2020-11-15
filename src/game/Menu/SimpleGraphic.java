@@ -1,7 +1,6 @@
 package game.Menu;
 
 import engine.entity.entity;
-import engine.event.Visitor;
 import engine.event.windowEvent;
 import engine.component.Location;
 import engine.draw.image;
@@ -23,10 +22,7 @@ public class SimpleGraphic extends entity{
 
     }
 
-    @Override
-    public void accept(Visitor visitor) {
 
-    }
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
