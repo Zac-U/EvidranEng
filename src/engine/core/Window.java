@@ -51,7 +51,7 @@ public class Window extends Application {
                     public void handle(KeyEvent e)
                     {
                         String code = e.getCode().toString();
-                        Gam.passInputEvent(getEvent("KEYPRESSED", code));
+                        Gam.passInputEvent(getEvent("KEYPRESSED", code));//game called here
                     }
                 });
 
@@ -63,7 +63,7 @@ public class Window extends Application {
                        int tempY = (int) mouseEvent.getY();
                        System.out.print("\t"+tempX+" "+ tempY+"\n");
                        Location temp = new Location(tempX, tempY);
-                        Gam.passInputEvent(getEvent("MOUSEPRESSED", temp));
+                        Gam.passInputEvent(getEvent("MOUSEPRESSED", temp));//game called here
                     }
                 }
         );
@@ -73,7 +73,7 @@ public class Window extends Application {
                     @Override
                     public void handle(KeyEvent keyEvent) {
                         String code = keyEvent.getCode().toString();
-                        Gam.passInputEvent(getEvent("KEYRELEASED", code));
+                        Gam.passInputEvent(getEvent("KEYRELEASED", code));//game called here
                     }
                 }
         );
@@ -97,7 +97,7 @@ public class Window extends Application {
                 int newSpeed = Math.floorDiv((int) (secsElapsed), 10) + 1;
                 if (newSpeed != gameSpeed) {
                     gameSpeed = newSpeed;
-                    Gam.setGameSpeed(gameSpeed);
+                    Gam.setGameSpeed(gameSpeed);//game called here
                 }
 
                 if((count % 2) == 0) {Gam.update();}
