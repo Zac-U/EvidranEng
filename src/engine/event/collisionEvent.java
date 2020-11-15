@@ -1,14 +1,15 @@
 package engine.event;
 
+import engine.component.Direction;
 import engine.entity.entity;
 import engine.physics.Collide;
 
 public class collisionEvent {
 
     entity e;
-    String direction;
+    Direction direction;
 
-    public collisionEvent(entity E, String direction) {
+    public collisionEvent(entity E, Direction direction) {
         this.e = E;
         this.direction = direction;
     }
@@ -17,7 +18,7 @@ public class collisionEvent {
         return e;
     }
 
-    public String getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 

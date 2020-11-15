@@ -2,6 +2,7 @@ package game;
 
 import engine.aspect.Level;
 import engine.aspect.Stage;
+import engine.component.Direction;
 import engine.entity.entity;
 import engine.event.collisionEvent;
 
@@ -31,22 +32,25 @@ public class Boost extends Collectible {
     }
 
     // increase player's speed and then gets destroyed
-    public void collect(player player) {
-        int newSpeed = player.getSpeedRight() + speedUp;
-        player.setSpeedRight(newSpeed);
-        collected = true;
-    }
+//    public void collect(player player) {
+//        int newSpeed = player.getSpeedRight() + speedUp;
+//        player.setSpeedRight(newSpeed);
+//        collected = true;
+//    }
 
     //TODO: accept player and deathwall
 
 
     @Override
-    public void accept(DeathBorder D, String direction) {
+    public void accept(DeathBorder D, Direction direction) {
         //kill myself
+        collected = true;
     }
 
     @Override
-    public void accept(player p, String direction) {
+    public void accept(player p, Direction direction) {
         //boost player
+        // int newSpeed = p.getSpeedRight() + speedUp;
+        p.accept(this, direction);
     }
 }

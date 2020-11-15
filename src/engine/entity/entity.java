@@ -1,6 +1,7 @@
 package engine.entity;
 
 import engine.aspect.Level;
+import engine.component.Direction;
 import engine.core.tick;
 import engine.draw.drawable;
 import engine.event.collisionEvent;
@@ -52,14 +53,14 @@ public abstract class entity extends Moveable implements drawable, tick {
        return super.move(game.getEntityList());
     }
 
-    public void accept(Boost b, String direction){}
+    public void accept(Boost b, Direction direction){}
 
-    public void accept(Coin c, String direction){}
+    public void accept(Coin c, Direction direction){}
 
-    public void accept(DeathBorder D, String direction){}
+    public void accept(DeathBorder D, Direction direction){}
 
-    public void accept(wall w, String direction){}
+    public void accept(wall w, Direction direction){}
 
-    public void accept(player p, String direction){}
+    public void accept(player p, Direction direction){}
 
 }
