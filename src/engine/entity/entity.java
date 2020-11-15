@@ -1,6 +1,7 @@
 package engine.entity;
 
 import engine.aspect.Level;
+import engine.aspect.Stage;
 import engine.component.Direction;
 import engine.core.tick;
 import engine.draw.drawable;
@@ -20,6 +21,7 @@ import game.*;
 public abstract class entity extends Moveable implements drawable, tick {
 
     public Level.speed coreSpeed;
+    protected boolean dead;
 
     public entity(entity e) {
         super(e.getSuper());
@@ -28,6 +30,14 @@ public abstract class entity extends Moveable implements drawable, tick {
     public entity(int x, int y, int volx, int voly, Level.speed speedIn) {
         super(x,y,volx,voly);
         coreSpeed = speedIn;
+        dead = false;
+    }
+
+    protected void kill(game g) {
+        Stage stage = g.getCurrentStage();
+        Level level = stage.getLevel();
+        level.removeEntity(this);
+        level.removeMid(this);
     }
 
     protected Moveable getSuper() {
