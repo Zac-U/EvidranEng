@@ -20,7 +20,7 @@ public class Main {
         wall w = new wall(1000,10,lvlGame.getSpeed());
         DeathBorder d = new DeathBorder(0,0,52,1080,lvlGame.getSpeed());
         Background bg = new Background(lvlGame.getSpeed());
-        Coin c = new Coin(1500, 500, 39, 40, lvlGame.getSpeed());
+        //Coin c = new Coin(1500, 500, 39, 40, lvlGame.getSpeed());
         //Add entities to level
         lvlGame.addEntity(p);
         lvlGame.setLastDrawn(p);
@@ -28,8 +28,8 @@ public class Main {
         lvlGame.addKeyReleased(p);
         lvlGame.addEntity(w);
         lvlGame.addMid(w);
-        lvlGame.addEntity(c);
-        lvlGame.addMid(c);
+        //lvlGame.addEntity(c);
+        //lvlGame.addMid(c);
         lvlGame.addEntity(d);
         lvlGame.addMid(d);
         lvlGame.addEntity(bg);
