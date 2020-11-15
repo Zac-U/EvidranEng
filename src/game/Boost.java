@@ -13,6 +13,7 @@ public class Boost extends Collectible {
         super(x, y, volx, voly, "file:src/game/Resources.Graphics.4k/gph_coin.png");
         speedUp = 10;
         this.setName("Boost");
+        this.setSpeedLeft(Main.getSpeed());
     }
 
     @Override

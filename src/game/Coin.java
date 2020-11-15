@@ -17,6 +17,7 @@ public class Coin extends Collectible {
         Random rand = new Random();
         value = (1 + rand.nextInt(3)) * 10;
         this.setName("Coin");
+        this.setSpeedLeft(Main.getSpeed());
     }
 
     @Override

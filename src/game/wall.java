@@ -16,7 +16,7 @@ public class wall extends entity {
     public wall(int x, int y) {
         super(x, y, 96, 446);
         this.setName("Wall");
-        this.setSpeedLeft(5);
+        this.setSpeedLeft(Main.getSpeed());
     }
 
     @Override

@@ -60,4 +60,6 @@ public class Main {
         return maker.create();
 
     }
+
+    public static int getSpeed(){ return 5;}
 }
