@@ -88,37 +88,15 @@ public class DeathBorder extends entity {
         picture.draw(canvas, super.getLocation());
     }
 
-    public void accept(wall w) {
-        System.out.print("Death wall meets wall\n");
-        //w.removeWall();
-    }
-
-    //TODO: accept wall, coin, boost and player. destroy all of them
-
+    @Override
+    public void accept(Boost b, Direction direction) { b.accept(this, Direction.opposite(direction)); }
 
     @Override
-    public void accept(Boost b, Direction direction) {
-        //destroy them
-        b.accept(this, direction);
-    }
+    public void accept(Coin c, Direction direction) { c.accept(this, Direction.opposite(direction)); }
 
     @Override
-    public void accept(Coin c, Direction direction) {
-        //destroy them
-        c.accept(this, direction);
-    }
+    public void accept(wall w, Direction direction) { w.accept(this, Direction.opposite(direction)); }
 
     @Override
-    public void accept(wall w, Direction direction) {
-        //destroy them
-        w.accept(this, direction);
-    }
-
-    @Override
-    public void accept(player p, Direction direction) {
-        //destroy them
-        accept(p, direction);
-    }
+    public void accept(player p, Direction direction) { accept(this, Direction.opposite(direction)); }
 }
-
-

@@ -35,7 +35,4 @@ public abstract class Collectible extends entity {
     public void draw(GraphicsContext board) {
         myImage.draw(board, super.getLocation());
     }
-
-    // gives a perk and then destroys itself
-//    abstract public void collect(player player);
 }
