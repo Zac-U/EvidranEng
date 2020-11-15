@@ -14,9 +14,8 @@ import javafx.scene.paint.Color;
 public class player extends entity {
 
     int sideSpeed = 15;
-
-
     int score = 0;
+    private boolean dead;
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
 
@@ -27,6 +26,7 @@ public class player extends entity {
     public player(int x, int y, Level.speed s) {
         super(x,y,72,83,s);
         this.setName("Player");
+        this.dead = false;
     }
 
     //set side speed according to key
@@ -59,7 +59,11 @@ public class player extends entity {
             System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
         }
+        if (dead) { kill(g); }
     }
+
+    //TODO: end the game
+    private void kill(game g) {}
 
     private void boundY() {
         int boundingDistance = 6;
@@ -73,40 +77,35 @@ public class player extends entity {
         }
     }
 
-
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
     }
-
 
     public void visit(wall w){
         System.out.print("player accepts wall\n");
     }
 
-    //TODO: accept deathwall, wall, coin and boost
-
-
     @Override
     public void accept(Boost b, Direction direction) {
-        //boost player
+        int newSpeed = this.getSpeedRight() + b.getSpeedUp();
+        this.setSpeedRight(newSpeed);
     }
 
     @Override
-    public void accept(Coin c, Direction direction) {
-        //add to player score
-    }
+    public void accept(Coin c, Direction direction) { score += c.getValue(); }
 
     @Override
-    public void accept(DeathBorder D, Direction direction) {
-        //kill player
-    }
+    public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
     public void accept(wall w, Direction direction) {
         if(direction.equals(Direction.LEFT)) {
             pushBack();
+        } else if (direction.equals(Direction.UP)) {
+            pushUp();
+        } else if (direction.equals(Direction.DOWN)) {
+            pushDown();
         }
-
     }
 
     public void pushBack(){
