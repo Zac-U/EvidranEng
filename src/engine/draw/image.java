@@ -13,7 +13,7 @@ public class image {
 
     public image(String directory) {
         this.directory = directory;
-        picture = new Image(this.directory, 50, 50, false, false);
+        picture = new Image(this.directory);
 
     }
 
