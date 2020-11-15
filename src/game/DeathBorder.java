@@ -1,6 +1,7 @@
 package game;
 
 import engine.aspect.Level;
+import engine.component.Location;
 import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
@@ -57,7 +58,8 @@ public class DeathBorder extends entity {
     }
 
     public void draw(GraphicsContext canvas) {
-        picture.draw(canvas, super.getLocation());
+        //picture.draw(canvas, super.getLocation());
+        picture.draw(canvas, new Location(0, 0));
     }
 }
 
