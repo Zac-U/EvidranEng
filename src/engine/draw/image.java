@@ -20,5 +20,4 @@ public class image {
     public void draw(GraphicsContext canvas, Location local) {
         canvas.drawImage(picture,local.getX(),local.getY());
     }
-
 }

@@ -31,8 +31,7 @@ public abstract class Collectible extends entity {
 
     @Override
     public void draw(GraphicsContext board) {
-        // super.draw(board);
-        myImage.draw(board, this);
+        myImage.draw(board, super.getLocation());
     }
 
     // gives a perk and then destroys itself

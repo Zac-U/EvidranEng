@@ -11,11 +11,13 @@ public class Main {
         player p = new player(500, 500,50,50);
         wall w = new wall(1000,10);
         Level l = new Level();
+        DeathBorder d = new DeathBorder(0,0,52,1080);
         l.addEntity(p);
         l.setLastDrawn(p);
         l.addKeyPressed(p);
         l.addKeyReleased(p);
         l.addEntity(w);
+        l.addEntity(d);
         Stage st = new Stage("Stage_One");
 
         st.setLevel(l);
