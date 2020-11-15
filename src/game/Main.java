@@ -8,6 +8,8 @@ import game.Menu.Button;
 
 public class Main {
     public static tick.game main() {
+
+        //Make game stage/level
         GameFactory maker = new GameFactory();
         player p = new player(500, 500);
         wall w = new wall(1000,10);
@@ -25,11 +27,11 @@ public class Main {
         l.addEntity(bg);
         l.addBackground(bg);
         Stage st = new Stage("Stage_One");
-
         st.setLevel(l);
 
+        //Make Main menu stage/level
         Level lvlMenu = new Level();
-        Button btnPlay = new Button(0, 0, 10, 10);
+        Button btnPlay = new Button(10, 10, 10, 10);
         lvlMenu.addEntity(btnPlay);
         lvlMenu.addMid(btnPlay);
         l.addEntity(bg);
@@ -37,9 +39,9 @@ public class Main {
         Stage stMenu = new Stage("Stage_Menu");
         stMenu.setLevel(lvlMenu);
 
-
-        maker.addStage(st);
         maker.addStage(stMenu);
+        maker.addStage(st);
+
         maker.setStartStage(st);
 
         return maker.create();
