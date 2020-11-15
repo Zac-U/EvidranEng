@@ -45,7 +45,6 @@ public class Window extends Application {
         primaryStage.setScene(scene);
 
 
-
         scene.setOnKeyPressed(
                 new EventHandler<KeyEvent>()
                 {
