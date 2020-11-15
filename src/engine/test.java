@@ -41,7 +41,7 @@ public class test extends Application {
 
         vb.setSpeedLeft(5);
         vb.setSpeedUp(5);
-        vb.move(temp2, true);
+        //vb.move(temp2, true);
 
         //TODO: add callbacks
 

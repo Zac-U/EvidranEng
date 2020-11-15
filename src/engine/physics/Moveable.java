@@ -12,7 +12,7 @@ public class Moveable extends Collide {
 
     private int[] speed = new int[4];
 
-    private boolean collider = true;
+    public boolean collider = true;
 
     public Moveable(int x, int y, int volx, int voly) {
         super(x,y,volx,voly);
@@ -52,32 +52,13 @@ public class Moveable extends Collide {
             if(speed[i] != 0) {
                 this.saveMomento();//save a momento
                 Move(i);//move
-                System.out.print("\nchecking collisions\n");
-                for (entity ent : elements) { //look for a collision
-                    System.out.print("checking sub\n");
-                    if (ent.collidesWith(this)) {
-                        System.out.print("\t\tcollision\n");
-                        return createEvent(ent, i);
-                    }
-                }
-            }
 
-        }
-        return null;
-    }
-
-    public collisionEvent move(ArrayList<Moveable> elements, boolean temp) {
-        //for every direction this object tries to move
-        for (int i = 0; i < speed.length ; i++) {
-            if(speed[i] != 0) {
-                this.saveMomento();//save a momento
-                Move(i);//move
-                System.out.print("\nchecking collisions\n");
-                for (Moveable ent : elements) { //look for a collision
-                    System.out.print("checking sub\n");
-                    if (ent.collidesWith(this)) {
-                        System.out.print("\t\tcollision\n");
-                        return null;
+                for (entity ent : elements) { //go over every other object
+                    if(this.collider && ent.collider) {//if you and they are collideable
+                        if (ent.collidesWith(this)) {//check if you collide
+                            System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");
+                            return createEvent(ent, i);//return event with it in
+                        }
                     }
                 }
             }
