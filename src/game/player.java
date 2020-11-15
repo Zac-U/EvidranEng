@@ -14,6 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class player extends entity {
 
@@ -33,6 +34,8 @@ public class player extends entity {
         this.setName("Player");
         this.dead = false;
     }
+
+
 
     //set side speed according to key
     @Override
