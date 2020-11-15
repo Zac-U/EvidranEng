@@ -1,6 +1,7 @@
 package game;
 
 import engine.entity.entity;
+import engine.event.Visitor;
 
 public class Boost extends Collectible {
 
@@ -17,5 +18,9 @@ public class Boost extends Collectible {
         int newSpeed = player.getSpeedRight() + speedUp;
         player.setSpeedRight(newSpeed);
         collected = true;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.accept(this);
     }
 }

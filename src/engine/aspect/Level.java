@@ -101,7 +101,7 @@ public class Level implements drawable{
 
 
     public void update(tick.game gam) {
-        for (entity i: elements) {i.tick(gam);}
+       for (entity i: elements) {i.tick(gam);}
     }
 
     public ArrayList<entity> getEntityList() {

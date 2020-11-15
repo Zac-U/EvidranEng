@@ -1,6 +1,10 @@
 package engine.physics;
 
 import engine.component.Volume;
+import engine.entity.entity;
+import engine.event.collisionEvent;
+
+import java.util.ArrayList;
 
 //POJO class for collision behaviour
 public class Collide extends Volume {
@@ -20,6 +24,12 @@ public class Collide extends Volume {
         if(this.Intersect(c)) {return true;}
         return false;
     }
+
+    //public collisionEvent collidesWith(ArrayList<entity> list) {
+       // for (entity ent: list) {
+           // if(this.collidesWith(ent))
+        //}
+    //}
 
     public boolean equals(Collide c) {
         if(this.getX() == c.getX() && this.getY() == c.getY() && this.getVolX()==c.getVolX() && this.getVolY() == c.getVolY()) {return true;}

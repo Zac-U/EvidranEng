@@ -2,6 +2,8 @@ package game;
 
 import engine.draw.image;
 import engine.entity.entity;
+import engine.event.Visitor;
+
 import java.util.Random;
 
 public class Coin extends Collectible {
@@ -19,6 +21,10 @@ public class Coin extends Collectible {
     public void collect(player player) {
         player.addScore(value);
         collected = true;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.accept(this);
     }
 
 

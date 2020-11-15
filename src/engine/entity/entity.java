@@ -2,6 +2,7 @@ package engine.entity;
 
 import engine.core.tick;
 import engine.draw.drawable;
+import engine.event.Visitor;
 import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import engine.physics.Moveable;
@@ -14,7 +15,7 @@ import javafx.scene.canvas.GraphicsContext;
  * when creating a "Game" the developer creates their own entities by extending this class
  * and overwriting the tick method as well as supplying a facade object
  */
-public abstract class entity extends Moveable implements drawable, tick {
+public abstract class entity extends Moveable implements drawable, tick, Visitor {
 
 
 
@@ -52,4 +53,5 @@ public abstract class entity extends Moveable implements drawable, tick {
     public void visit(entity e) {}
 
     public void visit(entity e, String direction){}
+
 }

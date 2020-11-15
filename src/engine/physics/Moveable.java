@@ -50,13 +50,13 @@ public class Moveable extends Collide {
            //for every direction this object tries to move
         for (int i = 0; i < speed.length ; i++) {
             if(speed[i] != 0) {
-                this.saveMomento();//save a momento
+                //this.saveMomento();//save a momento
                 Move(i);//move
 
                 for (entity ent : elements) { //go over every other object
-                    if(this.collider && ent.collider) {//if you and they are collideable
+                    if((this.collider && ent.collider) && !(this.getName().equals(ent.getName()))) {//if you and they are collideable
                         if (ent.collidesWith(this)) {//check if you collide
-                            System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");
+                            System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
                             return createEvent(ent, i);//return event with it in
                         }
                     }

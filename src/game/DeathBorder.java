@@ -5,6 +5,7 @@ import engine.component.Location;
 import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
+import engine.event.Visitor;
 import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import javafx.scene.canvas.Canvas;
@@ -63,6 +64,14 @@ public class DeathBorder extends entity {
     public void draw(GraphicsContext canvas) {
         //picture.draw(canvas, super.getLocation());
         picture.draw(canvas, super.getLocation());
+    }
+
+    public void visit(wall w) {
+        w.removeWall();
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.accept(this);
     }
 }
 
