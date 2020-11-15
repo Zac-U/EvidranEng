@@ -58,7 +58,7 @@ public class player extends entity {
         boundY();
        collisionEvent collide = this.move(g);
         if(collide != null) {
-            System.out.print("collision\n");
+            //System.out.print("collision\n");
             collide.getEntity().accept(this, collide.getDirection());
         }
         if (dead) { kill(g); }
@@ -82,10 +82,6 @@ public class player extends entity {
 
     public void draw(GraphicsContext canvas) {
         picture.draw(canvas, super.getLocation());
-    }
-
-    public void visit(wall w){
-        System.out.print("player accepts wall\n");
     }
 
     @Override

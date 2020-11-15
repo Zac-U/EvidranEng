@@ -24,7 +24,6 @@ public class wall extends entity {
         if (dead) { kill(g); }
         this.setSpeedLeft(g.getLevel().getSpeed().getSpeed());
         collisionEvent collide = this.move(g);
-        //TODO: review if the following is necessary
         if (collide != null) {
         }
         if (this.getX() < (-this.getVolX())) {
