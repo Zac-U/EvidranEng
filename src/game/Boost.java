@@ -9,6 +9,7 @@ public class Boost extends Collectible {
     public Boost(entity e, int x, int y, int volx, int voly) {
         super(x, y, volx, voly, "file:src/game/Resources.Graphics.4k/gph_coin.png");
         speedUp = 10;
+        this.setName("Boost");
     }
 
     // increase player's speed and then gets destroyed

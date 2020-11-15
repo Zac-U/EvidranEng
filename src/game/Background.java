@@ -19,6 +19,7 @@ public class Background extends entity{
         rand = new Random();
         currentTiles =  new int[] {0, rand.nextInt(6)};
         super.setCollider(false);
+        this.setName("Background");
     }
 
     private void setTiles() {
