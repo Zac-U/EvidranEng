@@ -15,18 +15,11 @@ public class player extends entity {
 
     int sideSpeed = 15;
     int score = 0;
-    private boolean dead;
-
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
-
-    public void addScore(int i) {
-        score += i;
-    }
 
     public player(int x, int y, Level.speed s) {
         super(x,y,72,83,s);
         this.setName("Player");
-        this.dead = false;
     }
 
     //set side speed according to key
@@ -63,7 +56,8 @@ public class player extends entity {
     }
 
     //TODO: end the game
-    private void kill(game g) {}
+    @Override
+    protected void kill(game g) {}
 
     private void boundY() {
         int boundingDistance = 6;

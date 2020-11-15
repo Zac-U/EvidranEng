@@ -11,14 +11,13 @@ import java.util.Random;
 
 public class Coin extends Collectible {
 
-    int value;
+    private int value;
 
     public Coin(int x, int y, int volx, int voly, Level.speed s) {
         super(x, y, volx, voly, "file:src/game/Resources/Graphics/1080p/gph_coin.png", s);
         Random rand = new Random();
         value = (1 + rand.nextInt(3)) * 10;
         this.setName("Coin");
-
     }
 
     @Override
@@ -26,29 +25,17 @@ public class Coin extends Collectible {
         super.tick(g);
         collisionEvent E = this.move(g);
         E.getEntity().accept(this,E.getDirection());
-
-
+        if (dead) { kill(g); }
     }
 
-    // adds value to the score and then gets destroyed
-//    public void collect(player player) {
-//        player.addScore(value);
-//        collected = true;
-//    }
-
-    //TODO: accept player and death wall
-
+    public int getValue() { return this.value; }
 
     @Override
-    public void accept(DeathBorder D, Direction direction) {
-        //destroy myself
-        collected = true;
-    }
+    public void accept(DeathBorder D, Direction direction) { dead = true; }
 
     @Override
     public void accept(player p, Direction direction) {
-        //get collected
+        dead = true;
         p.accept(this, direction);
-        collected = true;
     }
 }
