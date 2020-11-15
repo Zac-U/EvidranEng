@@ -51,8 +51,7 @@ public class DeathBorder extends entity {
             addWall(level, rand.nextInt(wally));
             addWall(level, rand.nextInt(wally));
         } else if (value < 6) {
-            addCoin(level, rand.nextInt(coiny));
-            addCoin(level, rand.nextInt(coiny));
+            addBoost(level, rand.nextInt(coiny));
         }
     }
 
@@ -60,6 +59,12 @@ public class DeathBorder extends entity {
         Coin newCoin = new Coin(maxx, ypos, 29,30, level.getSpeed());
         level.addEntity(newCoin);
         level.addMid(newCoin);
+    }
+
+    private void addBoost(Level level, int ypos) {
+        Boost newBoost = new Boost(maxx, ypos, 29,30, level.getSpeed());
+        level.addEntity(newBoost);
+        level.addMid(newBoost);
     }
 
     private void addWall(Level level, int ypos) {
