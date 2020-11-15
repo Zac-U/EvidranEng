@@ -1,6 +1,7 @@
 package game;
 
 import engine.aspect.Level;
+import engine.component.Direction;
 import engine.component.Location;
 import engine.component.Volume;
 import engine.draw.image;
@@ -70,23 +71,27 @@ public class DeathBorder extends entity {
 
 
     @Override
-    public void accept(Boost b, String direction) {
+    public void accept(Boost b, Direction direction) {
         //destroy them
+        b.accept(this, direction);
     }
 
     @Override
-    public void accept(Coin c, String direction) {
+    public void accept(Coin c, Direction direction) {
         //destroy them
+        c.accept(this, direction);
     }
 
     @Override
-    public void accept(wall w, String direction) {
+    public void accept(wall w, Direction direction) {
         //destroy them
+        w.accept(this, direction);
     }
 
     @Override
-    public void accept(player p, String direction) {
+    public void accept(player p, Direction direction) {
         //destroy them
+        accept(p, direction);
     }
 }
 

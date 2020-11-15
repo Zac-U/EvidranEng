@@ -4,6 +4,7 @@ import engine.core.tick;
 import engine.draw.drawable;
 import engine.entity.entity;
 import engine.event.windowEvent;
+import engine.sound.sound;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -18,6 +19,8 @@ import java.util.Set;
 public class Level implements drawable{
 
     speed coreSpeed = new speed();
+
+    public sound track;
 
     private ArrayList<entity> elements = new ArrayList<>();
 

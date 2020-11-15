@@ -39,5 +39,5 @@ public abstract class Collectible extends entity {
     }
 
     // gives a perk and then destroys itself
-    abstract public void collect(player player);
+//    abstract public void collect(player player);
 }

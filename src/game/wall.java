@@ -2,6 +2,7 @@ package game;
 
 import engine.aspect.Level;
 import engine.aspect.Stage;
+import engine.component.Direction;
 import engine.draw.image;
 import engine.entity.entity;
 import engine.event.collisionEvent;
@@ -56,12 +57,12 @@ public class wall extends entity {
 
 
     @Override
-    public void accept(DeathBorder D, String direction) {
+    public void accept(DeathBorder D, Direction direction) {
         //destroy myself
     }
 
     @Override
-    public void accept(player p, String direction) {
+    public void accept(player p, Direction direction) {
         if(direction.equals("RIGHT")) {
             p.pushBack();
         }
@@ -71,6 +72,5 @@ public class wall extends entity {
         else if(direction.equals("DOWN")) {
             p.pushUp();
         }
-        //also account for hitting player in other directions
     }
 }

@@ -1,6 +1,7 @@
 package engine;
 
 import engine.entity.entity;
+import engine.sound.sound;
 import game.player;
 import game.wall;
 
@@ -19,6 +20,17 @@ public class workbench {
         //P.setSpeedRight(5);
         //P.setSpeedDown(5);
         //P.move(temp);
+
+        sound sond;
+        try {
+            sond = new sound("src/game/Resources/Sound/Evidran_MainTheme.WAV", true);
+            sond.play();
+        }catch (Exception e){
+            System.out.print(e.getMessage());
+        }
+
+
+
 
     }
 
