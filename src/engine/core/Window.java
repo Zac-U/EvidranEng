@@ -72,7 +72,7 @@ public class Window extends Application {
                     public void handle(MouseEvent mouseEvent) {
                        int tempX = (int) mouseEvent.getX();
                        int tempY = (int) mouseEvent.getY();
-                       System.out.print("\t"+tempX+" "+ tempY+"\n");
+                       //System.out.print("\t"+tempX+" "+ tempY+"\n");
                        Location temp = new Location(tempX, tempY);
                         try {
                             mutex.lock();

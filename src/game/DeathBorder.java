@@ -95,5 +95,5 @@ public class DeathBorder extends entity {
     public void accept(wall w, Direction direction) { w.accept(this, Direction.opposite(direction)); }
 
     @Override
-    public void accept(player p, Direction direction) { accept(this, Direction.opposite(direction)); }
+    public void accept(player p, Direction direction) { p.accept(this, Direction.opposite(direction)); }
 }
