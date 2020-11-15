@@ -19,7 +19,7 @@ public class DeathBorder extends entity {
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_errorwall.png");
     int countdown;
     int chanceOfItem = 7;
-    final int interval = 20;
+    final int interval = 50;
     final int wally = 350;
     final int coiny = 900;
     final int maxx = 1920;

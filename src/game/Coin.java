@@ -51,6 +51,6 @@ public class Coin extends Collectible {
     public void accept(player p, Direction direction) {
         dead = true;
         p.accept(this, direction);
-        collected = true;
+//        collected = true;
     }
 }
