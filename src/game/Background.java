@@ -1,14 +1,9 @@
 package game;
 
 import engine.component.Location;
-import engine.component.Volume;
 import engine.draw.image;
 import engine.entity.entity;
-import engine.event.collisionEvent;
-import engine.event.windowEvent;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -49,7 +44,7 @@ public class Background extends entity{
 
     public void draw(GraphicsContext canvas) {
         //new image("file:src/game/Resources/Graphics/1080p/gph_circuit_6.png").draw(canvas, new Location(0, 0));
-        System.out.println(this.getLocation().getX());
+        //System.out.println(this.getLocation().getX());
         tiles.get(currentTiles[0]).draw(canvas, this.getLocation());
         tiles.get(currentTiles[1]).draw(canvas, this.getLocation().add(new Location(1920, 0)));
 
