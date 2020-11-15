@@ -20,6 +20,8 @@ public class Coin extends Collectible {
         this.setName("Coin");
     }
 
+    public int getValue(){return value;}
+
     @Override
     public void tick(game g) {
         super.tick(g);

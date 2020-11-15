@@ -105,7 +105,9 @@ public class Level implements drawable{
 
 
     public void update(tick.game gam) {
-       for (entity i: elements) {i.tick(gam);}
+        ArrayList<entity> stance = new ArrayList<>();
+        stance.addAll(elements);
+       for (entity i: stance) {i.tick(gam);}
     }
 
     public ArrayList<entity> getEntityList() {
@@ -136,6 +138,10 @@ public class Level implements drawable{
         private int speed = 5;
         public int getSpeed(){return speed;}
         public void setSpeed(int speed){this.speed = speed;}
+    }
+
+    public void stopSound() {
+        if(track != null) {track.interrupt();}
     }
 
 }

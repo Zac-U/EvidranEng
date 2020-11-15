@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.scene.canvas.*;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
+import javafx.stage.WindowEvent;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -94,6 +95,15 @@ public class Window extends Application {
                         } finally {
                             mutex.unlock();
                         }
+                    }
+                }
+        );
+
+        primaryStage.setOnCloseRequest(
+                new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent windowEvent) {
+                        Gam.getLevel().stopSound();
                     }
                 }
         );

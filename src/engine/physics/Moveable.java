@@ -42,8 +42,8 @@ public class Moveable extends Collide {
     public collisionEvent createEvent(entity e, int i) {
         if(i == 0) {return new collisionEvent(e, Direction.UP);}
         else if(i == 1) {return new collisionEvent(e, Direction.RIGHT);}
-        else if(i == 2) {return new collisionEvent(e, Direction.LEFT);}
-        else if(i == 3) {return new collisionEvent(e, Direction.DOWN);}
+        else if(i == 2) {return new collisionEvent(e, Direction.DOWN);}
+        else if(i == 3) {return new collisionEvent(e, Direction.LEFT);}
         return null;
     }
 
@@ -57,7 +57,7 @@ public class Moveable extends Collide {
                 for (entity ent : elements) { //go over every other object
                     if((this.collider && ent.collider) && !(this.getName().equals(ent.getName()))) {//if you and they are collideable
                         if (ent.collidesWith(this)) {//check if you collide
-                            System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
+                            //System.out.print(this.getName()+" collided with " + ent.getName()+ "\n");//debugging text
                             return createEvent(ent, i);//return event with it in
                         }
                     }
