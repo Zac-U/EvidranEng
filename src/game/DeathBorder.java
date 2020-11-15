@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class DeathBorder extends entity {
 
-    image picture = new image("file:src/game/Resources/Graphics.1080p/gph_errorwall.png");
+    image picture = new image("file:src/game/Resources/Graphics/1080p/gph_errorwall.png");
     int countdown;
     int chanceOfWall = 10;
     final int interval = 60;
@@ -59,7 +59,7 @@ public class DeathBorder extends entity {
 
     public void draw(GraphicsContext canvas) {
         //picture.draw(canvas, super.getLocation());
-        picture.draw(canvas, this.getLocation());
+        picture.draw(canvas, super.getLocation());
     }
 }
 
