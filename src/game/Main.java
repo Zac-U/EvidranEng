@@ -51,7 +51,7 @@ public class Main {
         maker.addStage(stMenu);
         maker.addStage(stGame);
 
-        maker.setStartStage(stMenu);
+        maker.setStartStage(stGame);
 
         return maker.create();
 
