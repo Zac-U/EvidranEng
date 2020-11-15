@@ -21,6 +21,8 @@ public class GameFactory {
 
     Game game = new Game();
 
+
+
     public GameFactory(){}
 
     public void addStage(Stage s) {
@@ -96,8 +98,17 @@ public class GameFactory {
         }
 
         @Override
-        public void setGameSpeed(int speed) {
-            currentStage.setGameSpeed(speed);
+        public void setGameSpeed(int speed) { currentStage.setGameSpeed(speed); }
+
+        @Override
+        public void setStage(String name) {
+            for (Stage s: elements
+                 ) {
+                if(s.name.equals(name)) {
+                    setCurrentStage(s);
+                    continue;
+                }
+            }
         }
 
         public void kill(entity e) {

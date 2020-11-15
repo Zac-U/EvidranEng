@@ -8,6 +8,7 @@ import engine.entity.entity;
 import engine.event.collisionEvent;
 import engine.event.windowEvent;
 import engine.physics.Collide;
+import engine.sound.sound;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -18,7 +19,7 @@ public class player extends entity {
 
     int sideSpeed = 15;
     int score = 0;
-    private boolean dead;
+    private boolean dead = false;
     private boolean push = false;
 
     image picture = new image("file:src/game/Resources/Graphics/1080p/gph_player.png");
@@ -71,8 +72,11 @@ public class player extends entity {
     }
 
     //TODO: end the game
-//    @Override
-    protected void kill(game g) {}
+    protected void kill(game g) {
+        sound sond = new sound("src/game/Resources/Sound/DeathSoundSynth.wav", false);
+        sond.play();
+        g.setStage("Stage_Menu");
+    }
 
     private void boundY() {
         int boundingDistance = 6;
@@ -108,7 +112,7 @@ public class player extends entity {
 
     @Override
     public void accept(wall w, Direction direction) {
-        System.out.print("wall hit player from " + direction + "\n");
+        //System.out.print("wall hit player from " + direction + "\n");
         if (direction.equals(Direction.LEFT)) {
             pushBack();
         } else if (direction.equals(Direction.UP)) {

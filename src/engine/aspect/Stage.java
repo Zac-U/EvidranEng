@@ -20,7 +20,7 @@ import java.util.Set;
 public class Stage implements drawable{
 
     Level level;
-    String name;
+    public String name;
 
     @Override
     public void draw(GraphicsContext board) {
